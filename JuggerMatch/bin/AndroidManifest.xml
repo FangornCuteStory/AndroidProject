@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.group5.juggermatch"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.group5.juggermatch.MainMenu"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.group5.juggermatch.MatchConfig"
+            android:label="@string/title_activity_match_config"
+            android:parentActivityName="com.group5.juggermatch.MainMenu" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.group5.juggermatch.MainMenu" />
+        </activity>
+        <activity
+            android:name="com.group5.juggermatch.MatchTimer"
+            android:label="@string/title_activity_match_timer"
+            android:parentActivityName="com.group5.juggermatch.MatchConfig" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.group5.juggermatch.MatchConfig" />
+        </activity>
+        <activity
+            android:name="com.group5.juggermatch.MatchResult"
+            android:label="@string/title_activity_match_result"
+            android:parentActivityName="com.group5.juggermatch.MatchTimer" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.group5.juggermatch.MatchTimer" />
+        </activity>
+        <activity
+            android:name="com.group5.juggermatch.ViewMatches"
+            android:label="@string/title_activity_view_matches" >
+        </activity>
+    </application>
+
+</manifest>
