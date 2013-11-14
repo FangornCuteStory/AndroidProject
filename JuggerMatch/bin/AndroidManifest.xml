@@ -33,7 +33,8 @@
         <activity
             android:name="com.group5.juggermatch.MatchTimer"
             android:label="@string/title_activity_match_timer"
-            android:parentActivityName="com.group5.juggermatch.MatchConfig" >
+            android:parentActivityName="com.group5.juggermatch.MatchConfig"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.group5.juggermatch.MatchConfig" />
