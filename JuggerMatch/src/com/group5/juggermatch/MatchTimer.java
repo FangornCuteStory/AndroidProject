@@ -1,43 +1,40 @@
 package com.group5.juggermatch;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import android.app.Activity;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.Window;
 
-public class MatchTimer extends Activity {
 
+
+public class MatchTimer extends Activity  {
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.activity_match_timer);
-	}
+	    super.onCreate(savedInstanceState);
+	//    setContentView(R.layout.buzz);  Can set content view to whatever, will have to see others layouts and code. 
+	   
+        timer = new Timer();
+        timer.scheduleAtFixedRate(new RemindTask(),
+	               1500,        //initial delay
+	               1*1500);  //subsequent rate, both will be a variable of type float or long or something
+        }
+	
+			 Timer timer;
+		 
+	 public MatchTimer(){};//Constructor Declaration. Looking at this I'm not sure its actually used anywhere. 
+	    
+	     class RemindTask extends TimerTask {
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.menu, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case android.R.id.home:
-			// This ID represents the Home or Up button. In the case of this
-			// activity, the Up button is shown. Use NavUtils to allow users
-			// to navigate up one level in the application structure. For
-			// more details, see the Navigation pattern on Android Design:
-			//
-			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
-			//
-			NavUtils.navigateUpFromSameTask(this);
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
-
+	    	    		public void run() { 
+	    	    	
+	            	MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.beep);	
+	        		mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+	        		mPlayer.start();//All straightforward,plays a file somehow.
+	    					
+	            }
+	      }
 }
