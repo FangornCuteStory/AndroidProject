@@ -9,29 +9,41 @@ import android.view.Window;
 
 public class MatchTimer extends Activity {
 
+Timer timer;
 	@Override
-+  protected void onCreate(Bundle savedInstanceState) {
- +      super.onCreate(savedInstanceState);
- +  //    setContentView(R.layout.buzz);  Can set content view to whatever, will have to see others layouts and code. 
- +     
- +        timer = new Timer();
- +        timer.schedule(new RemindTask(),
- +                 1500,        //initial delay
- +                 1*1500);  //subsequent rate, both will be a variable of type float or long or something
- +        }
- +  
- +       Timer timer;
- +     
- +   public MatchTimer(){};//Constructor Declaration. Looking at this I'm not sure its actually used anywhere. 
- +      
- +       class RemindTask extends TimerTask {
+	protected void onCreate(Bundle savedInstanceState) {
+	    super.onCreate(savedInstanceState);
+	    setContentView(R.layout.buzz); 
+	   
+	  
+        timer = new Timer();
+        timer.schedule(new RemindTask(),
+	               0,        //initial delay
+	               1*3000);  //subsequent rate
+	    
+	}
+
+		 
+	 public Beep(){};
+	    
+	     class RemindTask extends TimerTask {
+
+	    	    		public void run() {
+	    	    	
+	            	MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.beep);	
+	        		mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+	        		mPlayer.start();
+	    					
+	            }
+	      }
+	     
+
+protected void onPause(){
+
+    super.onPause();
+    timer.cancel();
+
+}
+
+
   
- +                public void run() { 
- +              
- +                MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.beep);  
- +              mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
- +              mPlayer.start();//All straightforward,plays a file somehow.
- +                
- +              }
- +        }
-  }
