@@ -42,6 +42,7 @@
        android:layout_alignParentRight="true"
        android:adjustViewBounds="true"
        android:layout_weight="0.1"
+       android:clickable="true"
      />
    
 </LinearLayout>
@@ -49,20 +50,50 @@
 <RelativeLayout
        android:id="@+id/timerwrapper"
        android:layout_width="match_parent"
-       android:layout_height="0dip"
-       android:layout_weight=".4"
+       android:layout_height="@dimen/timer_height"
+       android:orientation="vertical"
      >
  <ImageView
      android:id="@+id/timerbackground"
      android:src="@drawable/timercircle"
-     android:layout_centerInParent="true"
-     android:layout_height="wrap_content"
-     android:layout_width="wrap_content"
+     android:layout_height="match_parent"
+     android:layout_width="match_parent"
      android:adjustViewBounds="true"
     />
 
+	<ImageView
+	    android:id="@+id/playpausebutton"
+	    android:layout_width="@dimen/play_pause_button"
+	    android:layout_height="@dimen/play_pause_button"
+	    android:paddingTop="@dimen/play_button_margin"
+	    android:layout_centerHorizontal="true"
+	    android:layout_alignParentTop="true"
+	    android:clickable="true"
+	    android:src="@drawable/play" />
 
-    
+	<TextView
+	    android:id="@+id/timerStones"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_centerHorizontal="true"
+	    android:layout_below="@+id/playpausebutton"
+	    android:layout_marginBottom="@dimen/margin_spacer"
+	    android:text="888/888"
+	    android:textSize="@dimen/remaining_stones_size"
+	    android:textColor="#ff0" />
+	
+	<TextView
+	    android:id="@+id/timerHalves"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@+id/timerStones"
+	    android:layout_centerHorizontal="true"
+	    android:text="8/8"
+	    android:textSize="@dimen/halves_size"
+	    android:textColor="#ff0" />
+	
+
+	
 </RelativeLayout>
 
 <LinearLayout
@@ -78,6 +109,8 @@
     android:layout_height="match_parent"
     android:text="TEAM A"
     android:layout_weight="11"
+    android:textAllCaps="true"
+    android:textSize="@dimen/team_names_size"
     />
 <TextView
     android:id="@+id/teamdivider"
@@ -85,6 +118,7 @@
     android:layout_height="match_parent"
     android:layout_weight="1"
     android:text="|"
+    android:textSize="30sp"
     />
 <TextView
     android:id="@+id/teamb"
@@ -92,6 +126,9 @@
     android:layout_height="match_parent"
     android:text="TEAM B"
     android:layout_weight="11"
+    android:textAllCaps="true"
+    android:textSize="@dimen/team_names_size"
+    android:gravity="right"
     />
     
 </LinearLayout>
@@ -103,30 +140,77 @@
     android:layout_width="match_parent"
     >
     
-<RelativeLayout
-    android:id="@+id/teamascorebutton"
+<LinearLayout
+    android:id="@+id/teamascorewrapper"
     android:layout_width="0dip"
     android:layout_height="match_parent"
-    android:background="#f00"
     android:layout_weight="1"
+    android:orientation="vertical"
     >
-</RelativeLayout>
-<ImageView
+    <ImageView
+        android:id="@+id/score_control_a"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:src="@drawable/zeroscoreplus"
+        android:background="#f00"
+        android:adjustViewBounds="true"
+        android:clickable="true"
+        android:layout_marginBottom="@dimen/score_spacer"
+        />
+    <TextView
+        android:id="@+id/team_a_score"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:textSize="@dimen/score_size"
+        android:text="88"
+        android:background="#f00"
+        android:gravity="center"
+        />
+</LinearLayout>
+<TextView
     android:id="@+id/finishbutton"
     android:layout_width="0dip"
     android:layout_height="match_parent"
     android:layout_weight="2"
     />   
     
-<RelativeLayout
-    android:id="@+id/teamascorebutton"
+<LinearLayout
+    android:id="@+id/teambscorewrapper"
     android:layout_width="0dip"
     android:layout_height="match_parent"
-    android:background="#00f"
     android:layout_weight="1"
+    android:orientation="vertical"
     > 
+    
+    
+       <ImageView
+        android:id="@+id/score_control_b"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:src="@drawable/zeroscoreplus"
+        android:background="#00f"
+        android:adjustViewBounds="true"
+        android:clickable="true"
+        android:layout_marginBottom="@dimen/score_spacer"
+        />
+    <TextView
+        android:id="@+id/team_b_score"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:textSize="@dimen/score_size"
+        android:text="88"
+        android:background="#00f"
+        android:gravity="center"
+        />
 
-</RelativeLayout>
+</LinearLayout>
+
+
+
 </LinearLayout>
 
 
