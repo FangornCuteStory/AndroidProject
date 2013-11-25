@@ -1,12 +1,17 @@
 package com.group5.juggermatch;
 
-import android.os.Bundle;
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
+import android.os.Build;
+import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.support.v4.app.NavUtils;
-import android.annotation.TargetApi;
-import android.os.Build;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class MatchConfig extends Activity {
 
@@ -16,7 +21,51 @@ public class MatchConfig extends Activity {
 		setContentView(R.layout.activity_match_config);
 		// Show the Up button in the action bar.
 		setupActionBar();
-	}
+		
+		final EditText teamA = (EditText) findViewById(R.id.teamA_editText);
+		final EditText teamB = (EditText) findViewById(R.id.teamB_editText);
+		final EditText halves = (EditText) findViewById(R.id.halves_editText);
+		final EditText stones = (EditText) findViewById(R.id.stones_editText);
+		final EditText location = (EditText) findViewById(R.id.location_editText);
+		
+		Button start = (Button) findViewById(R.id.start_button);
+		
+	start.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				boolean training = false;
+				
+				Intent theIntent = new Intent(MatchConfig.this, MatchTimer.class);
+				
+				theIntent.putExtra("teamAvar", teamA.getText().toString());
+				theIntent.putExtra("teamBvar", teamB.getText().toString());
+				theIntent.putExtra("halvesVar", Integer.parseInt(halves.getText().toString()));
+				theIntent.putExtra("stonesVar", Integer.parseInt(stones.getText().toString()));
+				theIntent.putExtra("locationVar", location.getText().toString());
+				theIntent.putExtra("trainingVar", training);
+				
+				startActivity(theIntent);
+				
+				//this finish() will close the MatchConfig Activity when start button will be pressed
+				finish();
+			}
+		});
+		
+		Button back = (Button) findViewById(R.id.exit_button);
+		
+	back.setOnClickListener(new OnClickListener() {
+
+		@Override
+		public void onClick(View v) {
+		
+		//finish() will close the MatchConfig Activity when back button will be pressed
+			finish();
+		}
+	});
+
+}
 
 	/**
 	 * Set up the {@link android.app.ActionBar}, if the API is available.

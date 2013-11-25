@@ -55,8 +55,10 @@ public class MatchTimer extends Activity {
 	private long matchEndTime;
 	private String location;
 
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_match_timer);
@@ -188,7 +190,7 @@ public class MatchTimer extends Activity {
     	    }
     	});
 
-		
+	
 	}
 	
 	private void startTimer(){
@@ -278,6 +280,7 @@ public class MatchTimer extends Activity {
 	}
 	
 
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
@@ -287,6 +290,7 @@ public class MatchTimer extends Activity {
 	
 	
 
-
-
 }
+
+
+  
