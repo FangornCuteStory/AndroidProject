@@ -43,7 +43,7 @@ Button view_matches = (Button) findViewById(R.id.viewMatches_button);
 			int stones = 100;
 			boolean training = false; 
 			
-		Intent theIntent = new Intent(MainMenu.this, MatchResult.class);
+		Intent theIntent = new Intent(MainMenu.this, MatchTimer.class);
 			theIntent.putExtra("teamAvar", teamA);
 			theIntent.putExtra("teamBvar", teamB);
 			theIntent.putExtra("halvesVar", halves);
