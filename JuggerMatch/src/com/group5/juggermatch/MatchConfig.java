@@ -20,11 +20,11 @@ public class MatchConfig extends Activity {
 		// Show the Up button in the action bar.
 		setupActionBar();
 		
-		final EditText teamA = (EditText) findViewById(R.id.teamA_textView);
-		final EditText teamB = (EditText) findViewById(R.id.teamB_textView);
-		final EditText halves = (EditText) findViewById(R.id.halves_textView);
-		final EditText stones = (EditText) findViewById(R.id.stones_textView);
-		final EditText location = (EditText) findViewById(R.id.location_textView);
+		final EditText teamA = (EditText) findViewById(R.id.teamA_editText);
+		final EditText teamB = (EditText) findViewById(R.id.teamB_editText);
+		final EditText halves = (EditText) findViewById(R.id.halves_editText);
+		final EditText stones = (EditText) findViewById(R.id.stones_editText);
+		final EditText location = (EditText) findViewById(R.id.location_editText);
 		
 		Button start = (Button) findViewById(R.id.start_button);
 		
@@ -36,12 +36,14 @@ public class MatchConfig extends Activity {
 				boolean training = false;
 				
 				Intent theIntent = new Intent(MatchConfig.this, MatchTimer.class);
+				
 				theIntent.putExtra("teamAvar", teamA.getText().toString());
 				theIntent.putExtra("teamBvar", teamB.getText().toString());
-				theIntent.putExtra("halvesVar", halves.getText().toString());
-				theIntent.putExtra("stonesVar", stones.getText().toString());
+				theIntent.putExtra("halvesVar", Integer.parseInt(halves.getText().toString()));
+				theIntent.putExtra("stonesVar", Integer.parseInt(stones.getText().toString()));
 				theIntent.putExtra("locationVar", location.getText().toString());
-				theIntent.putExtra("booleanVar", training);
+				theIntent.putExtra("trainingVar", training);
+				
 				startActivity(theIntent);
 				
 				//this finish() will close the MatchConfig Activity when start button will be pressed
