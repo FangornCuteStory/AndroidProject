@@ -1,16 +1,93 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainMenu" >
+    android:layout_height="match_parent" >
+    
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+   	<TableRow
+   	    android:id="@+id/tableRow1"
+   	    android:layout_width="match_parent"
+   	    android:layout_height="wrap_content" >
+   	    
+   	    <TextView
+   	        android:layout_width="match_parent"
+   	        android:layout_height="wrap_content"
+   	        android:text="@string/hello_jugger"
+   	        android:textSize="30sp" />
+   	    
+   	</TableRow>
 
-</RelativeLayout>
+   	<TableRow
+   	    android:id="@+id/tableRow2"
+   	    android:layout_width="wrap_content"
+   	    android:layout_height="wrap_content" >
+
+   		<Button
+   		    android:id="@+id/match_button"
+   		    android:layout_width="wrap_content"
+   		    android:layout_height="wrap_content"
+   		    android:layout_weight="1"
+   		    android:onClick="invokes_activity_match_config"
+   		    android:text="@string/title_match_button" />
+
+   	</TableRow>
+
+   	<TableRow
+   	    android:id="@+id/tableRow3"
+   	    android:layout_width="wrap_content"
+   	    android:layout_height="wrap_content" >
+
+   		<Button
+   		    android:id="@+id/quick_match_button"
+   		    android:layout_width="wrap_content"
+   		    android:layout_height="wrap_content"
+   		    android:layout_weight="1"
+   		    android:text="@string/title_quick_match_button" />
+
+   	</TableRow>
+
+   	<TableRow
+   	    android:id="@+id/tableRow4"
+   	    android:layout_width="wrap_content"
+   	    android:layout_height="wrap_content" >
+
+   		<Button
+   		    android:id="@+id/training_button"
+   		    android:layout_width="wrap_content"
+   		    android:layout_height="wrap_content"
+   		    android:layout_weight="1"
+   		    android:text="@string/title_training_button" />
+
+   	</TableRow>
+   	
+   	<TableRow
+   	    android:id="@+id/tableRow5"
+   	    android:layout_width="wrap_content"
+   	    android:layout_height="wrap_content" >
+
+   		<Button
+   		    android:id="@+id/viewMatches_button"
+   		    android:layout_width="wrap_content"
+   		    android:layout_height="wrap_content"
+   		    android:layout_weight="1"
+   		    android:text="@string/title_activity_view_matches" />
+
+   	</TableRow>
+   	
+
+   	<TableRow
+   	    android:id="@+id/tableRow6"
+   	    android:layout_width="wrap_content"
+   	    android:layout_height="wrap_content" >
+
+   		<Button
+   		    android:id="@+id/exit_button"
+   		    android:layout_width="wrap_content"
+   		    android:layout_height="wrap_content"
+   		    android:layout_weight="1"
+   		    android:onClick="ExitFromApp"
+   		    android:text="@string/title_exit_button" />
+
+   	</TableRow>
+
+</TableLayout>
