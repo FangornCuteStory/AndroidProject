@@ -1,4 +1,3 @@
-
 package com.group5.juggermatch;
 
 import android.app.Activity;
