@@ -60,11 +60,11 @@ Button view_matches = (Button) findViewById(R.id.viewMatches_button);
 	@Override
 	public void onClick(View v) {
 		
-	//boolean training = true;
+	boolean training = true;
 			
-	//Intent theIntent = new Intent(getApplicationContext(), MatchTimer.class);
-	//theIntent.putExtra("booleanVar", training);
-	//startActivity(theIntent);
+	Intent theIntent = new Intent(getApplicationContext(), MatchTimer.class);
+	theIntent.putExtra("booleanVar", training);
+	startActivity(theIntent);
 		}
 	
 	});
