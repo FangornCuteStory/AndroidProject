@@ -25,7 +25,7 @@
     <string name="match_day">Tue,</string>
     <string name="colon">   :</string>
     <string name="location">Location:</string>
-    <string name="match_location">Fairview Park, Dublin</string>
+    <string name="match_location"></string>
     <string name="team1">Team1 </string>
     <string name="team2">Team2 </string>
     <string name="score_team1">11</string>
