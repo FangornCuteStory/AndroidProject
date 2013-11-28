@@ -1,16 +1,267 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="match_parent" >
+
+<RelativeLayout    
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MatchResult" >
-
+    android:paddingTop="@dimen/activity_vertical_margin" >
+    
     <TextView
+        android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="@string/title_add_match"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+    
+     <LinearLayout
+       android:id="@+id/linearLayout6"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_below="@+id/textTitle"
+       android:layout_marginTop="5dp"
+       android:orientation="horizontal" >
+      
+      <TextView 
+          android:id="@+id/textDate"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:paddingLeft = "10dp" 
+          android:layout_marginRight="10dp"
+          android:layout_weight="1"
+          android:text="@string/date"
+          android:textAppearance="?android:attr/textAppearanceMedium" />
+      
+      <EditText
+          android:id="@+id/date"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:clickable="false"
+          android:ems="10"
+          android:focusable="false"
+          android:focusableInTouchMode="false"
+          android:inputType="date" > 
+      </EditText>  
+    </LinearLayout>
+    
+    <LinearLayout
+       android:id="@+id/linearLayout1"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_below="@+id/linearLayout6"
+       android:layout_marginTop="5dp"
+       android:orientation="horizontal" >
+      
+      <TextView 
+          android:id="@+id/textStartTime"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:paddingLeft = "10dp" 
+          android:layout_marginRight="10dp"
+          android:layout_weight="1"
+          android:text="@string/start_time"
+          android:textAppearance="?android:attr/textAppearanceMedium" />
+      
+      <EditText
+          android:id="@+id/start_time"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:clickable="false"
+          android:ems="10"
+          android:focusable="false"
+          android:focusableInTouchMode="false"
+          android:inputType="time" >
+<!--           android:maxLength="2" >     --> 
 
+      </EditText>  
+    </LinearLayout>
+    
+     <LinearLayout
+       android:id="@+id/linearLayout2"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_below="@+id/linearLayout1"
+       android:layout_marginTop="5dp"
+       android:orientation="horizontal" >
+      
+      <TextView 
+          android:id="@+id/textEndTime"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:paddingLeft = "10dp" 
+          android:layout_marginRight="10dp"
+          android:layout_weight="1"
+          android:text="@string/end_time"
+          android:textAppearance="?android:attr/textAppearanceMedium" />
+      
+      <EditText
+          android:id="@+id/end_time"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:clickable="false"
+          android:ems="10"
+          android:focusable="false"
+          android:focusableInTouchMode="false"
+          android:inputType="time" >
+
+      </EditText>  
+    </LinearLayout>
+    
+    <LinearLayout
+       android:id="@+id/linearLayout5"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_below="@+id/linearLayout2"
+       android:layout_marginTop="5dp"
+       android:orientation="horizontal" >
+      
+      <TextView 
+          android:id="@+id/textLocation"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:paddingLeft = "10dp" 
+          android:layout_marginRight="5dp"
+          android:layout_weight="1"
+          android:text="@string/location"
+          android:textAppearance="?android:attr/textAppearanceMedium" />
+      
+      <EditText
+          android:id="@+id/location"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="2"
+          android:clickable="false"
+          android:ems="10"
+          android:focusable="false"
+          android:focusableInTouchMode="false"
+          android:inputType="text" >
+
+      </EditText>
+        
+    </LinearLayout> 
+     <LinearLayout 
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout5"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+      
+      <EditText
+          android:id="@+id/team1"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginRight="10dp"
+          android:layout_weight="2"
+          android:clickable="false"
+          android:ems="10"
+          android:focusable="false"
+          android:focusableInTouchMode="false"
+          android:hint="@string/hint_team1"
+          android:inputType="text"
+          android:textColorLink="@color/Red"
+          android:textStyle="bold" >
+
+      </EditText>    
+
+      <EditText
+          android:id="@+id/score_team1"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:clickable="true"
+          android:ems="10"
+          android:focusable="false"
+          android:focusableInTouchMode="false"
+          android:hint="@string/hint_score"
+          android:inputType="number"
+           >
+      
+      </EditText>   
+        
+    </LinearLayout>
+    
+     <LinearLayout 
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linearLayout3"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+      
+      <EditText
+          android:id="@+id/team2"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginRight="10dp"
+          android:layout_weight="2"
+          android:clickable="false"
+          android:ems="10"
+          android:focusable="false"
+          android:focusableInTouchMode="false"
+          android:hint="@string/hint_team2"
+          android:inputType="text"
+          android:textColorLink="@color/Blue"
+          android:textStyle="bold" >
+
+      </EditText>    
+
+      <EditText
+          android:id="@+id/score_team2"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:clickable="false"
+          android:ems="10"
+          android:focusable="false"
+          android:focusableInTouchMode="false"
+          android:hint="@string/hint_score"
+          android:inputType="number"
+           >
+      
+      </EditText>        
+        
+    </LinearLayout>
+        
+     
+     <LinearLayout 
+      android:id="@+id/linearLayout7"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="10dp"
+      android:layout_below="@+id/linearLayout4"
+      android:paddingTop="10dp"
+      android:orientation="horizontal"
+      >
+
+      <Button
+         android:id="@+id/button_save"
+         android:layout_width="0dp"
+         android:layout_height="wrap_content"
+         android:onClick="onClickButton"
+         android:layout_weight="1"
+         android:text="@string/b_save" />
+  
+     <Button
+      android:id="@+id/button_reject"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:onClick="onClickButton"
+      android:layout_weight="1"
+      android:text="@string/b_reject" />
+     
+</LinearLayout>  
+    
 </RelativeLayout>
+</ScrollView>
