@@ -1,4 +1,4 @@
-package.com.group5.juggermatch;
+package com.group5.juggermatch;
 
 public class Match {
 	
