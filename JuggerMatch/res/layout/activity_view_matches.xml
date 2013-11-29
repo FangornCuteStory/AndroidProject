@@ -9,8 +9,39 @@
     tools:context=".ViewMatches" >
 
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:paddingBottom ="10dp"
+        android:text="@string/title_jugger_matches"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+  <RelativeLayout 
+      android:id="@+id/relative_layout2"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="30dp"
+      android:layout_marginBottom="10dp"
+      android:layout_centerHorizontal="false"
+      android:layout_centerVertical="false"
+      android:paddingTop="@dimen/activity_horizontal_margin"
+      android:paddingBottom="@dimen/activity_horizontal_margin"
+          
+      >    
+
+       <ListView
+           android:id="@+id/list_of_matches"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginBottom="20dp"
+           android:smoothScrollbar="true" />
+
+  </RelativeLayout>      
+
+   
+    
 
 </RelativeLayout>
