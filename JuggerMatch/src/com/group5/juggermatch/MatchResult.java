@@ -43,9 +43,9 @@ public class MatchResult extends Activity {
         score1 = bundle.getInt("score1",0);
         score2 = bundle.getInt("score2",0);
         s_time = bundle.getLong("end_time_stamp",0);
-        Log.d(TAG,"ADDMATCH: from intent start time = " + s_time);
+        
         e_time = bundle.getLong("end_time_stamp",0);
-        Log.d(TAG,"ADDMATCH: from intent end time = " + e_time);
+        
         location = bundle.getString("location");
         
         //Displaying match results in the corresponding fields of the view
