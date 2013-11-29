@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class AddMatch extends Activity {
+public class Matchresult extends Activity {
  
 	private DatabaseOperations db;
 	private static final String TAG = "JUGGER";
@@ -26,7 +26,7 @@ public class AddMatch extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_add_match);
+		setContentView(R.layout.activity_match_result);
 		db = new DatabaseOperations(AddMatch.this);
 		db.open();
 		
@@ -110,12 +110,5 @@ public class AddMatch extends Activity {
 		}    
   }
 	
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.add_match, menu);
-		return true;
-	}
 
 }
