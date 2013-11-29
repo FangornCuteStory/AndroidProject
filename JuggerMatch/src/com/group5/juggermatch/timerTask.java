@@ -8,28 +8,20 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
-public class timerTask extends Activity {
+public class timerTask extends timerTask {
 
-Timer timer;
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.buzz); 
-           
-          
-        timer = new Timer();
-        timer.schedule(new RemindTask(),
-                       0,        //initial delay
-                       1*3000);  //subsequent rate
-            
-        }
+	
 
-                 
-         public Beep(){}; / Not sure this actually does anything
-            
-             class RemindTask extends TimerTask {
+public timerTask(int stonesRemaining){
+	setStones(stonesRemaining);
+};
 
-                                        public void run() {
+
+public void setStones(int stonesRemaining){
+	
+	
+};
+public void run() {
                                 
                             MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.beep);        
                                 mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);

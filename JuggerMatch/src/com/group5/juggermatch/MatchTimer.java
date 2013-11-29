@@ -1,5 +1,7 @@
 package com.group5.juggermatch;
 
+import java.util.Timer;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -54,6 +56,7 @@ public class MatchTimer extends Activity {
 	private long matchStartTime;
 	private long matchEndTime;
 	private String location;
+	private Timer timer;
 
 
 	@Override
@@ -98,7 +101,7 @@ public class MatchTimer extends Activity {
     	playPause.setOnClickListener(new OnClickListener() {
     	    @Override
     	    public void onClick(View v) {
-    	    	if(state==2){
+    	    	if(state==2 || state==4 || state==5){
     	    		pauseTimer();
     	    	}
     	    	else if(state==1){
@@ -190,6 +193,35 @@ public class MatchTimer extends Activity {
     	    }
     	});
 
+    	
+    	rollBack.setOnClickListener(new OnClickListener() {
+    	    @Override
+    	    public void onClick(View v) {
+    	    	pauseTimer();
+    	    	stonesRemaining=stonesValuePrevious;
+    	    	teamAScoreValue=teamAScorePrevious;
+    	    	teamBScoreValue=teamBScorePrevious;
+    	        stonesCounter.setText(stonesRemaining + "/" + stonesTotal);
+	    		teamAScore.setText(""+teamAScoreValue);
+	    		teamBScore.setText(""+teamBScoreValue);
+    	    }
+    	});
+    	
+    	fastForward.setOnClickListener(new OnClickListener() {
+    	    @Override
+    	    public void onClick(View v) {
+    	    	if(halvesRemaining>1){
+    	    		nextHalf();
+    	    	} else {
+    	    		pauseTimer();
+    	    		stonesRemaining=0;
+    	            stonesCounter.setText(stonesRemaining + "/" + stonesTotal);
+    	            matchOver();
+    	    		
+    	    	}
+    	    		
+    	    }
+    	});
 	
 	}
 	
@@ -247,6 +279,8 @@ public class MatchTimer extends Activity {
 		state=5;
 		halvesCounter.setTextColor(Color.rgb(200,0,0));
 		stonesCounter.setTextColor(Color.rgb(200,0,0));
+		halvesRemaining--;
+        halvesCounter.setText(halvesRemaining + "/" + halvesTotal);
 		matchFinish.setText(getResources().getString(R.string.end_match));
 		matchFinish.setBackgroundColor(Color.rgb(255,0,0));
 		}
@@ -269,13 +303,13 @@ public class MatchTimer extends Activity {
 		matchEndTime=System.currentTimeMillis()/1000;
 		pauseTimer();
         Intent theIntent = new Intent(MatchTimer.this, MatchResult.class);
-        theIntent.putExtra("teamAname", teamNameA.getText().toString());
-        theIntent.putExtra("teamBname", teamNameB.getText().toString());
-        theIntent.putExtra("teamAscore", teamAScoreValue);
-        theIntent.putExtra("teamBscore", teamBScoreValue);
-        theIntent.putExtra("matchStartTime", matchStartTime);
-        theIntent.putExtra("matchEndTime", matchEndTime);
-        theIntent.putExtra("matchLocation", location);
+        theIntent.putExtra("team1", teamNameA.getText().toString());
+        theIntent.putExtra("team2", teamNameB.getText().toString());
+        theIntent.putExtra("score1", teamAScoreValue);
+        theIntent.putExtra("score2", teamBScoreValue);
+        theIntent.putExtra("start_time_stamp", matchStartTime);
+        theIntent.putExtra("end_time_stamp", matchEndTime);
+        theIntent.putExtra("location", location);
         startActivity(theIntent);
 	}
 	
