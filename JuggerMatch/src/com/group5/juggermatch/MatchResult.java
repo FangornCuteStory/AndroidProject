@@ -27,7 +27,7 @@ public class MatchResult extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_match_result);
-		db = new DatabaseOperations(AddMatch.this);
+		db = new DatabaseOperations(MatchResult.this);
 		db.open();
 		
 		 Bundle bundle = getIntent().getExtras(); 
@@ -43,9 +43,9 @@ public class MatchResult extends Activity {
         score1 = bundle.getInt("score1",0);
         score2 = bundle.getInt("score2",0);
         s_time = bundle.getLong("end_time_stamp",0);
-        Log.d(TAG,"ADDMATCH: from intent start time = " + s_time);
+        
         e_time = bundle.getLong("end_time_stamp",0);
-        Log.d(TAG,"ADDMATCH: from intent end time = " + e_time);
+        
         location = bundle.getString("location");
         
         //Displaying match results in the corresponding fields of the view
@@ -98,13 +98,13 @@ public class MatchResult extends Activity {
 	          }
 	         else 
 	        	 message = getResources().getString(R.string.insert_failed);
-	          Toast.makeText(AddMatch.this, message, Toast.LENGTH_LONG).show(); 
+	          Toast.makeText(MatchResult.this, message, Toast.LENGTH_LONG).show(); 
 	         db.close();
 	         finish();
 		     break;
 	       case R.id.button_reject:
 	    	   message = getResources().getString(R.string.insert_rejected);
-	    	   Toast.makeText(AddMatch.this, message, Toast.LENGTH_LONG).show(); 
+	    	   Toast.makeText(MatchResult.this, message, Toast.LENGTH_LONG).show(); 
               finish();    // activity ends and we return to the calling activity
 	          break;
 		}    
