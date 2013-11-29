@@ -1,3 +1,4 @@
+/*
 package com.group5.juggermatch;
 
 import java.util.Timer;
@@ -8,22 +9,30 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
-public class timerTask extends timerTask {
+public class timerTask extends Activity {
 
-	
+Timer timer;
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.buzz);
+           
+          
+        timer = new Timer();
+        timer.schedule(new RemindTask(),
+                       0, //initial delay
+                       1*3000); //subsequent rate
+            
+        }
 
-public timerTask(int stonesRemaining){
-	setStones(stonesRemaining);
-};
+                 
+         public Beep(){}; / Not sure this actually does anything
+            
+             class RemindTask extends TimerTask {
 
-
-public void setStones(int stonesRemaining){
-	
-	
-};
-public void run() {
+                                        public void run() {
                                 
-                            MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.beep);        
+                            MediaPlayer mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.beep);
                                 mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
                                 mPlayer.start();
                                                     
@@ -37,6 +46,8 @@ protected void onPause(){
     timer.cancel();
 
 }
+*/
+
 
 
   

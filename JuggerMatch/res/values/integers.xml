@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <resources>
 
     <integer name="limit_value_to_3digits">3</integer>
     <integer name="limit_value_to_1digit">1</integer>
 
 </resources>
+

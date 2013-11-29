@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relative_layout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="5dp"
+ >
+
+    <LinearLayout  
+        android:id="@+id/linear_layout1" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:paddingLeft = "10dp"
+        android:paddingRight = "10dp"> 
+        
+      <TextView
+        android:id="@+id/item_match_day"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"    
+        android:hint="@string/match_day"
+        android:gravity="left" 
+        android:maxLength="4"
+        android:layout_weight ="0.5"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="italic" />
+      
+      <TextView
+        android:id="@+id/item_match_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/match_date"
+        android:layout_weight ="1"
+        android:paddingRight="10dp"
+        android:maxLength="8"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textStyle="italic" />
+
+      <TextView
+          android:id="@+id/item_match_location"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:hint="@string/match_location"
+          android:layout_weight ="2"
+          android:textAppearance="?android:attr/textAppearanceMedium"
+          android:textStyle="italic" />
+  
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/linear_layout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/linear_layout1"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+ 
+    <TextView
+        android:id="@+id/item_team1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:hint="@string/team1"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/item_score_team1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="@string/score_team2"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="italic|bold" />
+
+    <TextView
+        android:id="@+id/item_colon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingLeft="10dp"
+        android:maxLength="1"
+        android:hint="@string/colon"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="italic|bold" />
+        
+        
+    <TextView
+        android:id="@+id/item_score_team2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/score_team1"
+        android:layout_weight="1"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="italic|bold" />
+        
+        
+    <TextView
+        android:id="@+id/item_team2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:hint="@string/team2"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold" />
+    
+
+ </LinearLayout>
+ 
+ </RelativeLayout>

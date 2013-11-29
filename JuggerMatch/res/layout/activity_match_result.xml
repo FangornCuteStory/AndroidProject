@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-<RelativeLayout
+<RelativeLayout    
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -30,11 +30,12 @@
        android:layout_marginTop="5dp"
        android:orientation="horizontal" >
       
-      <TextView
+
+      <TextView 
           android:id="@+id/textDate"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
-          android:paddingLeft = "10dp"
+          android:paddingLeft = "10dp" 
           android:layout_marginRight="10dp"
           android:layout_weight="1"
           android:text="@string/date"
@@ -49,8 +50,8 @@
           android:ems="10"
           android:focusable="false"
           android:focusableInTouchMode="false"
-          android:inputType="date" >
-      </EditText>
+          android:inputType="date" > 
+      </EditText>  
     </LinearLayout>
     
     <LinearLayout
@@ -61,11 +62,11 @@
        android:layout_marginTop="5dp"
        android:orientation="horizontal" >
       
-      <TextView
+      <TextView 
           android:id="@+id/textStartTime"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
-          android:paddingLeft = "10dp"
+          android:paddingLeft = "10dp" 
           android:layout_marginRight="10dp"
           android:layout_weight="1"
           android:text="@string/start_time"
@@ -81,9 +82,8 @@
           android:focusable="false"
           android:focusableInTouchMode="false"
           android:inputType="time" >
-<!-- android:maxLength="2" > -->
-
-      </EditText>
+<!--           android:maxLength="2" >     -->
+      </EditText>  
     </LinearLayout>
     
      <LinearLayout
@@ -94,11 +94,11 @@
        android:layout_marginTop="5dp"
        android:orientation="horizontal" >
       
-      <TextView
+      <TextView 
           android:id="@+id/textEndTime"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
-          android:paddingLeft = "10dp"
+          android:paddingLeft = "10dp" 
           android:layout_marginRight="10dp"
           android:layout_weight="1"
           android:text="@string/end_time"
@@ -115,7 +115,7 @@
           android:focusableInTouchMode="false"
           android:inputType="time" >
 
-      </EditText>
+      </EditText>  
     </LinearLayout>
     
     <LinearLayout
@@ -126,11 +126,11 @@
        android:layout_marginTop="5dp"
        android:orientation="horizontal" >
       
-      <TextView
+      <TextView 
           android:id="@+id/textLocation"
           android:layout_width="0dp"
           android:layout_height="wrap_content"
-          android:paddingLeft = "10dp"
+          android:paddingLeft = "10dp" 
           android:layout_marginRight="5dp"
           android:layout_weight="1"
           android:text="@string/location"
@@ -149,8 +149,8 @@
 
       </EditText>
         
-    </LinearLayout>
-     <LinearLayout
+    </LinearLayout> 
+     <LinearLayout 
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -173,7 +173,7 @@
           android:textColorLink="@color/Red"
           android:textStyle="bold" >
 
-      </EditText>
+      </EditText>    
 
       <EditText
           android:id="@+id/score_team1"
@@ -188,11 +188,11 @@
           android:inputType="number"
            >
       
-      </EditText>
+      </EditText>   
         
     </LinearLayout>
     
-     <LinearLayout
+     <LinearLayout 
         android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -215,7 +215,7 @@
           android:textColorLink="@color/Blue"
           android:textStyle="bold" >
 
-      </EditText>
+      </EditText>    
 
       <EditText
           android:id="@+id/score_team2"
@@ -230,12 +230,12 @@
           android:inputType="number"
            >
       
-      </EditText>
+      </EditText>        
         
     </LinearLayout>
         
      
-     <LinearLayout
+     <LinearLayout 
       android:id="@+id/linearLayout7"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -261,8 +261,6 @@
       android:layout_weight="1"
       android:text="@string/b_reject" />
      
-</LinearLayout>
-    
+</LinearLayout>      
 </RelativeLayout>
 </ScrollView>
-
