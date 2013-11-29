@@ -105,7 +105,6 @@ public class AddMatch extends Activity {
 	       case R.id.button_reject:
 	    	   message = getResources().getString(R.string.insert_rejected);
 	    	   Toast.makeText(AddMatch.this, message, Toast.LENGTH_LONG).show(); 
-		      db.close();		 
               finish();    // activity ends and we return to the calling activity
 	          break;
 		}    
