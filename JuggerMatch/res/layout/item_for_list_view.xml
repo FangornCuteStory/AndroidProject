@@ -97,6 +97,15 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textStyle="italic|bold" />
         
+    <TextView
+        android:id="@+id/item_team2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:hint="@string/team2"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textStyle="bold" />
+        
  </LinearLayout>
  
  </RelativeLayout>
