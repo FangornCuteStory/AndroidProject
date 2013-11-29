@@ -96,3 +96,7 @@
         android:layout_weight="1"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textStyle="italic|bold" />
+        
+ </LinearLayout>
+ 
+ </RelativeLayout>
