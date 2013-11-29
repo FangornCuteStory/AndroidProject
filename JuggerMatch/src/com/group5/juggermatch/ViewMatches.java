@@ -32,7 +32,7 @@ public class ViewMatches extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_view_match);
+		setContentView(R.layout.activity_view_matches);
 		db = new DatabaseOperations(ViewMatches.this);
 		db.open();
 		
@@ -153,15 +153,5 @@ public class ViewMatches extends Activity {
 	}
 	
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.view_match, menu);
-		return true;
-	}
-	
-	
-	
-	
 
 }
