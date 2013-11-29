@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class Matchresult extends Activity {
+public class MatchResult extends Activity {
  
 	private DatabaseOperations db;
 	private static final String TAG = "JUGGER";
