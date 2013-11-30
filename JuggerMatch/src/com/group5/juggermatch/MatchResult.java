@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.Locale;
 import android.os.Bundle;
 import android.app.Activity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -14,7 +13,7 @@ import android.widget.Toast;
 public class MatchResult extends Activity {
  
 	private DatabaseOperations db;
-	private static final String TAG = "JUGGER";
+//	private static final String TAG = "JUGGER";
 	private String team1;
 	private String team2;
 	private int score1;
