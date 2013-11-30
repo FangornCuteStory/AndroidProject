@@ -14,5 +14,5 @@
 	<dimen name="margin_spacer">10dp</dimen>
 	<dimen name="score_size">45sp</dimen>
 	<dimen name="score_spacer">3dp</dimen>
-
+        <dimen name="score_digit">50dp</dimen> 
 </resources>
