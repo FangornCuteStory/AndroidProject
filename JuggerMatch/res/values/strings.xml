@@ -21,16 +21,16 @@
 	<string name="title_start_button">Start</string>
 	<string name="title_back_button">Back</string>
 	<string name="title_exit_button">Exit</string>
-	<string name="date">Match date:</string>
+        <string name="match_date">01/11/2013,</string>
+    <string name="date">Match date:</string>
     <string name="match_day">Tue,</string>
-    <string name="colon"> :</string>
+    <string name="colon">   :</string>
     <string name="location">Location:</string>
-    <string name="match_location"></string>
+    <string name="match_location">Fairview Park, Dublin</string>
     <string name="team1">Team1 </string>
     <string name="team2">Team2 </string>
     <string name="score_team1">11</string>
     <string name="score_team2">12</string>
-    <string name="match_date">01/11/2013,</string>
     <string name="match_end_time">12:45:39</string>
     <string name="title_jugger_matches">Jugger Matches Results</string>
     <string name="title_activity_add_match">Add Match</string>
@@ -49,8 +49,16 @@
     <string name="vs">vs</string>
     <string name="button_delete">Delete </string>
     <string name="button_close">Close </string>
+    <string name="button_back">Back</string>
     <string name="delete_ok">Match results have been deleted successfuly! </string>
     <string name="delete_failed">Deletion failed! </string>
     <string name="positive_delete">Delete </string>
     <string name="negative_close">Close </string>
+    <string name="title_activity_match_info">Match Info</string>
+    <string name="delete_dialog_title">Deleting&#8230; </string>
+    <string name="delete_dialog_message">Confirm deletion </string>
+    <string name="delete_dialog_positive_button">"OK"</string>
+    <string name="delete_dialog_negative_button">"Cancel"</string> 
+    <string name="search_field">Search&#8230; </string>
+    <string name="title_match_info">Match Information</string> 
     </resources>
