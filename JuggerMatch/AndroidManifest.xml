@@ -48,6 +48,14 @@
                 android:value="com.group5.juggermatch.MatchTimer" />
         </activity>
         <activity
+            android:name="com.group5.juggermatch.MatchInfo"
+            android:label="@string/title_activity_match_result"
+            android:parentActivityName="com.group5.juggermatch.ViewMatches" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.group5.juggermatch.ViewMatches" />
+        </activity>
+        <activity
             android:name="com.group5.juggermatch.ViewMatches"
             android:label="@string/title_activity_view_matches" >
         </activity>
