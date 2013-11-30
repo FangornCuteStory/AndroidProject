@@ -8,11 +8,7 @@ import java.util.Locale;
 
 import android.os.Bundle;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -22,12 +18,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ViewMatches extends Activity {
+public class ViewMatches<MainActivity> extends Activity {
 	
-	private DatabaseOperations db;
-	List<Match> matches = new ArrayList<Match>(); 
+	private DatabaseOperations db; 
+	private   MatchListAdapter adapter;
+//	 EditText inputSearch;
+	 List<Match> matches = new ArrayList<Match>();
     
- //   final private static int VIEW_MATCH_INFO = 1;
+//   final private static String TAG = "JUGGER";
     
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -75,11 +73,11 @@ public class ViewMatches extends Activity {
 			
 			// Day of the week:			
 			TextView day_txt = (TextView) itemView.findViewById(R.id.item_match_day);
-			day_txt.setText(day_formatter.format(new Date(currentMatch.getStartTime())));
+			day_txt.setText(day_formatter.format(new Date(currentMatch.getStartTime())) + ",");
 			
 			//Date:
 			TextView date_txt = (TextView) itemView.findViewById(R.id.item_match_date);
-			date_txt.setText(date_formatter.format(new Date(currentMatch.getStartTime())));
+			date_txt.setText(date_formatter.format(new Date(currentMatch.getStartTime())) + ",");
 				
 			//Scores:
 			TextView score1_txt = (TextView) itemView.findViewById(R.id.item_score_team1);
@@ -95,6 +93,8 @@ public class ViewMatches extends Activity {
 		}
 
 	}
+	
+	
 	
 	@Override
 	public void onRestart(){
@@ -121,10 +121,36 @@ public class ViewMatches extends Activity {
 	
 
 	private void populateListView() {
-		// 
-		ArrayAdapter<Match> adapter = new MatchListAdapter();
+		
+		  
 		ListView list = (ListView) findViewById(R.id.list_of_matches);
+//		inputSearch = (EditText) findViewById(R.id.search_field);
+		adapter = new MatchListAdapter();
 		list.setAdapter(adapter);
+				
+		
+    /*    // Enabling Search Filter
+        
+      inputSearch.addTextChangedListener(new TextWatcher() {
+             
+            @Override
+            public void onTextChanged(CharSequence cs, int start, int before, int count) {
+                // When user changed the Text
+            	Log.d(TAG,"ViewMatches: in populateListView: " + start +", " + before + ", " + count);
+            	
+                adapter.getFilter().filter(cs);   
+            }
+             
+            @Override
+            public void beforeTextChanged(CharSequence cs, int start, int before, int count) {
+                                 
+            }
+             
+            @Override
+            public void afterTextChanged(Editable cs) {
+                           
+            }
+        });   */
 		
 	}
 
@@ -143,14 +169,15 @@ public class ViewMatches extends Activity {
 				long match_id = clickedMatch.getId();
 				message = "position" + position + " is clicked, match id: " + match_id;
 				Toast.makeText(ViewMatches.this, message, Toast.LENGTH_LONG).show();
-				db.open();
-				Match currentMatch = db.getMatch(match_id);
-				db.close();
-                 	}
+				Intent intent = new Intent(ViewMatches.this,MatchInfo.class);				
+				intent.putExtra("match_id", match_id);
+				startActivity(intent);
+			}
 
 		});
 		
 	}
+	
 	
 
 
