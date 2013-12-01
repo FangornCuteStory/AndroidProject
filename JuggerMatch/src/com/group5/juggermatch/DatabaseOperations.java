@@ -61,6 +61,14 @@ public class DatabaseOperations {
 	          return db.delete(DatabaseHelper.DATABASE_TABLE, DatabaseHelper.KEY_ID + " = " + id, null) > 0;          
 		  }
 	    
+	    //Method override from Carl to fix error
+	    
+	    public boolean deleteMatch(long id) {
+		      //if return value=1 deletion is successful, otherwise deletion failed 		  
+		          return db.delete(DatabaseHelper.DATABASE_TABLE, DatabaseHelper.KEY_ID + " = " + id, null) > 0;          
+			  }
+
+	    
 	  //--- get single match from the database ---
 	    public Match getMatch(long id){
 	    	Cursor cursor = db.query(DatabaseHelper.DATABASE_TABLE, allColumns, DatabaseHelper.KEY_ID + "=" + id, null, null, null, null, null);	
