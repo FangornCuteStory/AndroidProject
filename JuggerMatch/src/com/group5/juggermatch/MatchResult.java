@@ -41,7 +41,7 @@ public class MatchResult extends Activity {
 		team2 = bundle.getString("team2");
         score1 = bundle.getInt("score1",0);
         score2 = bundle.getInt("score2",0);
-        s_time = bundle.getLong("end_time_stamp",0);
+        s_time = bundle.getLong("start_time_stamp",0);
         
         e_time = bundle.getLong("end_time_stamp",0);
         
