@@ -81,7 +81,7 @@ public class DatabaseOperations {
 	        public List<Match> getAllMatches() {
 			  List<Match> matches = new ArrayList<Match>();
 			  Cursor cursor = db.query(DatabaseHelper.DATABASE_TABLE, allColumns,
-	                                 null, null, null, null, KEY_START_TIME_STAMP + " desc");
+	                                 null, null, null, null, DatabaseHelper.KEY_START_TIME_STAMP + " desc");
 			  cursor.moveToFirst();
 			  while (!cursor.isAfterLast()) {
 		     Match match = cursorToMatch(cursor);
