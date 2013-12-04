@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list 
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/timerframe30" android:duration="50" />
+    <item android:drawable="@drawable/timerframe1" android:duration="50" />
+    <item android:drawable="@drawable/timerframe2" android:duration="50" />
+    <item android:drawable="@drawable/timerframe3" android:duration="50" />
+    <item android:drawable="@drawable/timerframe4" android:duration="50" />
+    <item android:drawable="@drawable/timerframe5" android:duration="50" />
+    <item android:drawable="@drawable/timerframe6" android:duration="50" />
+    <item android:drawable="@drawable/timerframe7" android:duration="50" />
+    <item android:drawable="@drawable/timerframe8" android:duration="50" />
+    <item android:drawable="@drawable/timerframe9" android:duration="50" />
+    <item android:drawable="@drawable/timerframe10" android:duration="50" />
+    <item android:drawable="@drawable/timerframe11" android:duration="50" />
+    <item android:drawable="@drawable/timerframe12" android:duration="50" />
+    <item android:drawable="@drawable/timerframe13" android:duration="50" />
+    <item android:drawable="@drawable/timerframe14" android:duration="50" />
+    <item android:drawable="@drawable/timerframe15" android:duration="50" />
+    <item android:drawable="@drawable/timerframe16" android:duration="50" />
+    <item android:drawable="@drawable/timerframe17" android:duration="50" />
+    <item android:drawable="@drawable/timerframe18" android:duration="50" />
+    <item android:drawable="@drawable/timerframe19" android:duration="50" />
+    <item android:drawable="@drawable/timerframe20" android:duration="50" />
+    <item android:drawable="@drawable/timerframe21" android:duration="50" />
+    <item android:drawable="@drawable/timerframe22" android:duration="50" />
+    <item android:drawable="@drawable/timerframe23" android:duration="50" />
+    <item android:drawable="@drawable/timerframe24" android:duration="50" />
+    <item android:drawable="@drawable/timerframe25" android:duration="50" />
+    <item android:drawable="@drawable/timerframe26" android:duration="50" />
+    <item android:drawable="@drawable/timerframe27" android:duration="50" />
+    <item android:drawable="@drawable/timerframe28" android:duration="50" />
+    <item android:drawable="@drawable/timerframe29" android:duration="50" />
+
+</animation-list>

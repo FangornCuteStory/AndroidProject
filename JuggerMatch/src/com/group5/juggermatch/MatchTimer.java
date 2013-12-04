@@ -240,6 +240,7 @@ public class MatchTimer extends Activity {
     	    @Override
     	    public void onClick(View v) {
     	    	if(state==1){
+    	    		matchStartTime=System.currentTimeMillis();
     	    		state=3;
     	    	}
     	    	if(halvesRemaining>1){
