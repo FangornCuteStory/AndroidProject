@@ -3,9 +3,10 @@ package com.group5.juggermatch;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-import android.os.Bundle;
+
 import android.app.Activity;
-import android.view.Menu;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -87,6 +88,7 @@ public class MatchResult extends Activity {
 		
 	public void onClickButton(View view){
 		 String message;
+	     Intent intent = new Intent(MatchResult.this,MainMenu.class);
 		switch(view.getId()) {
 	      case R.id.button_save:      			
 	          Match match_add = createMatchObj();
@@ -99,12 +101,13 @@ public class MatchResult extends Activity {
 	        	 message = getResources().getString(R.string.insert_failed);
 	          Toast.makeText(MatchResult.this, message, Toast.LENGTH_LONG).show(); 
 	         db.close();
-	         finish();
+	         startActivity(intent);
 		     break;
 	       case R.id.button_reject:
 	    	   message = getResources().getString(R.string.insert_rejected);
-	    	   Toast.makeText(MatchResult.this, message, Toast.LENGTH_LONG).show(); 
-              finish();    // activity ends and we return to the calling activity
+	    	   Toast.makeText(MatchResult.this, message, Toast.LENGTH_LONG).show();
+		       startActivity(intent);
+		       // activity ends and we return to the calling activity
 	          break;
 		}    
   }

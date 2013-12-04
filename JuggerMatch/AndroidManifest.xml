@@ -5,17 +5,18 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="11"
         android:targetSdkVersion="18" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppBaseTheme" >
         <activity
             android:name="com.group5.juggermatch.MainMenu"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:theme="@style/AppBaseTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,7 +26,8 @@
         <activity
             android:name="com.group5.juggermatch.MatchConfig"
             android:label="@string/title_activity_match_config"
-            android:parentActivityName="com.group5.juggermatch.MainMenu" >
+            android:parentActivityName="com.group5.juggermatch.MainMenu"
+            android:theme="@style/AppBaseTheme" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.group5.juggermatch.MainMenu" />
@@ -34,7 +36,8 @@
             android:name="com.group5.juggermatch.MatchTimer"
             android:label="@string/title_activity_match_timer"
             android:parentActivityName="com.group5.juggermatch.MatchConfig"
-            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            android:theme="@android:style/Theme.Black.NoTitleBar"
+            android:noHistory="true" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.group5.juggermatch.MatchConfig" />
@@ -42,7 +45,8 @@
         <activity
             android:name="com.group5.juggermatch.MatchResult"
             android:label="@string/title_activity_match_result"
-            android:parentActivityName="com.group5.juggermatch.MatchTimer" >
+            android:noHistory="true"
+            android:theme="@style/AppBaseTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.group5.juggermatch.MatchTimer" />
@@ -50,14 +54,20 @@
         <activity
             android:name="com.group5.juggermatch.MatchInfo"
             android:label="@string/title_activity_match_result"
-            android:parentActivityName="com.group5.juggermatch.ViewMatches" >
+            android:parentActivityName="com.group5.juggermatch.ViewMatches"
+            android:theme="@style/AppBaseTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.group5.juggermatch.ViewMatches" />
         </activity>
         <activity
             android:name="com.group5.juggermatch.ViewMatches"
-            android:label="@string/title_activity_view_matches" >
+            android:label="@string/title_activity_view_matches"
+            android:parentActivityName="com.group5.juggermatch.MainMenu"
+            android:theme="@style/AppBaseTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.group5.juggermatch.MainMenu" />
         </activity>
     </application>
 

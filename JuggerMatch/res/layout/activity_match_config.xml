@@ -1,133 +1,89 @@
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-
-    <TableRow
-        android:id="@+id/tableRow1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/teamA_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/title_team_A" />
-
-        <EditText
+    
+<LinearLayout 
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    android:layout_margin="@dimen/activity_horizontal_margin"
+    >
+      
+          <EditText
             android:id="@+id/teamA_editText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text" />
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/teamB_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/title_team_B" />
-
-        <EditText
-            android:id="@+id/teamB_editText"
-            android:layout_width="wrap_content"
+            android:inputType="text"
+            android:hint="@string/title_team_A" />
+                
+         
+          <EditText
+            android:id="@+id/teamB_editText"           
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text" />
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/halves_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/title_number_of_halves" />
-
-        <EditText
+            android:inputType="text"
+            android:hint="@string/title_team_B" />
+         
+ 
+         
+     	  <EditText
             android:id="@+id/halves_editText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/title_number_of_halves"
             android:ems="10"
             android:inputType="number"
             android:maxLength="@integer/limit_value_to_1digit" />
 
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/stones_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/title_number_of_stones" />
-
-        <EditText
+         
+        
+          <EditText
             android:id="@+id/stones_editText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="@string/title_number_of_stones"
             android:ems="10"
             android:inputType="number"
             android:maxLength="@integer/limit_value_to_3digits" />
 
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/location_textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/title_location" />
-
+ 
         <EditText
             android:id="@+id/location_editText"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:hint="@string/title_location"
             android:inputType="text" />
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <Button
+ 
+        
+        
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        >
+           	<Button
             android:id="@+id/exit_button"
-            android:layout_width="wrap_content"
+            android:layout_width="0dip"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/title_back_button" />
-
-        <Button
+         
+                
+            <Button
             android:id="@+id/start_button"
-            android:layout_width="wrap_content"
+            android:layout_width="0dip"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="@string/title_start_button" />
 
-    </TableRow>
+        </LinearLayout>
 
-    <TableRow
-        android:id="@+id/tableRow7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-    </TableRow>
 
-</TableLayout>
+
+
+</LinearLayout>
+</ScrollView>

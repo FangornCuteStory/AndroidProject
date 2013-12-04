@@ -23,7 +23,6 @@
        android:src="@drawable/rollback"
    	   android:layout_width="0dip"
 	   android:layout_height="match_parent"
-       android:layout_alignParentLeft="true"
        android:adjustViewBounds="true"
        android:layout_weight="0.1"
        android:clickable="true"
@@ -40,7 +39,6 @@
        android:src="@drawable/fastforward"
   	   android:layout_width="0dip"
 	   android:layout_height="match_parent"
-       android:layout_alignParentRight="true"
        android:adjustViewBounds="true"
        android:layout_weight="0.1"
        android:clickable="true"
@@ -50,8 +48,9 @@
 
 <RelativeLayout
        android:id="@+id/timerwrapper"
-       android:layout_width="match_parent"
+       android:layout_width="@dimen/timer_height"
        android:layout_height="@dimen/timer_height"
+       android:layout_gravity="center_horizontal"
        android:orientation="vertical"
      >
  <ImageView
@@ -120,7 +119,7 @@
     android:layout_height="match_parent"
     android:layout_weight="1"
     android:text="|"
-    android:textSize="30sp"
+    android:textSize="@dimen/team_names_size"
     android:textColor="#fff"
     />
 <TextView

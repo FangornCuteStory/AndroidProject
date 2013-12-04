@@ -168,7 +168,6 @@ public class ViewMatches<MainActivity> extends Activity {
 				String message;
 				long match_id = clickedMatch.getId();
 				message = "position" + position + " is clicked, match id: " + match_id;
-				Toast.makeText(ViewMatches.this, message, Toast.LENGTH_LONG).show();
 				Intent intent = new Intent(ViewMatches.this,MatchInfo.class);				
 				intent.putExtra("match_id", match_id);
 				startActivity(intent);

@@ -4,10 +4,11 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.drawable.AnimationDrawable;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -112,6 +113,10 @@ public class MatchTimer extends Activity {
         mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.highbeep); 
         mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
         timerView = (ImageView) findViewById(R.id.timerbackground);
+        IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_ON);
+        filter.addAction(Intent.ACTION_SCREEN_OFF);
+        BroadcastReceiver mReceiver = new ScreenReceiver();
+        registerReceiver(mReceiver, filter);
 
 
         if (trainingMode==true){
@@ -139,7 +144,7 @@ public class MatchTimer extends Activity {
     	    		pauseTimer();
     	    	}
     	    	else if(state==1){
-    	    		matchStartTime=System.currentTimeMillis()/1000;
+    	    		matchStartTime=System.currentTimeMillis();
     	    		startTimer();
     	    	}
     	    	else if(state==3){
@@ -252,6 +257,13 @@ public class MatchTimer extends Activity {
 	
 	}
 	
+	@Override protected void onPause(){
+		if(state==2){
+			pauseTimer();
+		}
+		super.onPause();
+	}
+	
 	private void startTimer(){
 		
 		 timer = new Timer();
@@ -280,7 +292,7 @@ public class MatchTimer extends Activity {
 	}
 	
 	private void pauseTimer(){
-		if(state==2){
+		if(state==2 || state==4){
 		timer.cancel();
 		}
 		if(halvesRemaining>0){
@@ -364,7 +376,7 @@ public class MatchTimer extends Activity {
 	}
 	
 	private void endMatch(){
-		matchEndTime=System.currentTimeMillis()/1000;
+		matchEndTime=System.currentTimeMillis();
 		pauseTimer();
         Intent theIntent = new Intent(MatchTimer.this, MatchResult.class);
         theIntent.putExtra("team1", teamAstring);

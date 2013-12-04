@@ -1,18 +1,5 @@
 <resources>
 
-    <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="remaining_stones_size">50sp</dimen>
-    <dimen name="total_stones_size">25sp</dimen>
-    <dimen name="halves_size">20sp</dimen>
-    <dimen name="divider_size">70sp</dimen>
-    <dimen name="team_names_size">25sp</dimen>
-    <dimen name="timer_height">250dp</dimen>
-    <dimen name="play_pause_button">120dp</dimen>
-    <dimen name="play_button_margin">30dp</dimen>
-	<dimen name="margin_spacer">10dp</dimen>
-	<dimen name="score_size">45sp</dimen>
-	<dimen name="score_spacer">3dp</dimen>
-        <dimen name="score_digit">50dp</dimen> 
 </resources>

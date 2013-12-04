@@ -13,8 +13,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
-        android:paddingLeft = "10dp"
-        android:paddingRight = "10dp"> 
+        android:paddingLeft = "5dp"
+        android:paddingRight = "5dp"> 
         
       <TextView
         android:id="@+id/item_match_day"
@@ -23,8 +23,11 @@
         android:hint="@string/match_day"
         android:gravity="left" 
         android:maxLength="4"
-        android:layout_weight ="0.5"
+        android:layout_weight ="2"
+        android:ellipsize="none"
+        android:paddingRight="3dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
+        android:singleLine="true"
         android:textStyle="italic" />
       
       <TextView
@@ -32,9 +35,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/match_date"
-        android:layout_weight ="1"
-        android:paddingRight="10dp"
+        android:layout_weight ="5"
+        android:paddingRight="3dp"
         android:maxLength="8"
+        android:singleLine="true"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textStyle="italic" />
 
@@ -43,7 +47,10 @@
           android:layout_width="0dp"
           android:layout_height="wrap_content"
           android:hint="@string/match_location"
-          android:layout_weight ="2"
+          android:singleLine="true"
+          android:ellipsize="none"
+          android:gravity="right"
+          android:layout_weight ="9"
           android:textAppearance="?android:attr/textAppearanceMedium"
           android:textStyle="italic" />
   
@@ -56,24 +63,29 @@
         android:layout_below="@+id/linear_layout1"
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp" >
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp" >
  
     <TextView
         android:id="@+id/item_team1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:layout_weight="7"
+        android:singleLine="true"
+        android:ellipsize="none"
         android:hint="@string/team1"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        android:gravity="left"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/item_score_team1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:singleLine="true"
         android:layout_weight="1"
         android:hint="@string/score_team2"
+        android:gravity="right"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textStyle="italic|bold" />
 
@@ -82,7 +94,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:paddingLeft="10dp"
+        android:paddingLeft="5dp"
         android:maxLength="1"
         android:hint="@string/colon"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -92,7 +104,9 @@
     <TextView
         android:id="@+id/item_score_team2"
         android:layout_width="0dp"
+        android:singleLine="true"
         android:layout_height="wrap_content"
+        android:gravity="left"
         android:hint="@string/score_team1"
         android:layout_weight="1"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -103,11 +117,15 @@
         android:id="@+id/item_team2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="2"
+        android:gravity="right"
+        android:singleLine="true"
+        android:ellipsize="none"
+        android:layout_weight="7"
         android:hint="@string/team2"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textStyle="bold" />
  
  </LinearLayout>
+
  
  </RelativeLayout>

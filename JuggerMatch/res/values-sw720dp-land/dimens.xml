@@ -4,6 +4,19 @@
          Customize dimensions originally defined in res/values/dimens.xml (such as
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     -->
-    <dimen name="activity_horizontal_margin">128dp</dimen>
+    <dimen name="activity_horizontal_margin">32dp</dimen>
+    <dimen name="activity_vertical_margin">32dp</dimen>
+    <dimen name="remaining_stones_size">100sp</dimen>
+    <dimen name="total_stones_size">150sp</dimen>
+    <dimen name="halves_size">100sp</dimen>
+    <dimen name="divider_size">200sp</dimen>
+    <dimen name="team_names_size">70sp</dimen>
+    <dimen name="timer_height">600dp</dimen>
+    <dimen name="play_pause_button">240dp</dimen>
+    <dimen name="play_button_margin">60dp</dimen>
+	<dimen name="margin_spacer">30dp</dimen>
+	<dimen name="score_size">120sp</dimen>
+	<dimen name="score_spacer">10dp</dimen>
+    <dimen name="score_digit">120dp</dimen> 
 
 </resources>
