@@ -12,7 +12,7 @@ foreach($result as $key => $value) {
 //mysql table names,host,databasename or password yet unknown
 
             //how to use json array to insert data in Database
-        mysql_query("INSERT INTO matche (team_1, team_2, team_score_1,team_score_2,start_time,end_time) VALUES ($value->team_1, $value->team_2,$value->team_score_1,$value->team_score_2,$value->start_time,$value->end_time)");
+        mysql_query("INSERT INTO matches (team_1, team_2, team_score_1,team_score_2,start_time,end_time) VALUES ($value->team_1, $value->team_2,$value->team_score_1,$value->team_score_2,$value->start_time,$value->end_time)");
     }
     mysql_close($con);
 }
