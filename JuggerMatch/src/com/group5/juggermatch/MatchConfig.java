@@ -2,16 +2,20 @@ package com.group5.juggermatch;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MatchConfig extends Activity {
 
@@ -21,19 +25,203 @@ public class MatchConfig extends Activity {
 		setContentView(R.layout.activity_match_config);
 		// Show the Up button in the action bar.
 		setupActionBar();
+		final Context context = getApplicationContext(); //for use in validation error display
 		
-		final EditText teamA = (EditText) findViewById(R.id.teamA_editText);
-		final EditText teamB = (EditText) findViewById(R.id.teamB_editText);
-		final EditText halves = (EditText) findViewById(R.id.halves_editText);
-		final EditText stones = (EditText) findViewById(R.id.stones_editText);
-		final EditText location = (EditText) findViewById(R.id.location_editText);
+		final EditText teamA = (EditText) findViewById(R.id.teamA_editText); //Team A input
+		teamA.addTextChangedListener(new TextWatcher(){ 				//Team A validation
+				@Override
+				public void onTextChanged(CharSequence s, int start, int before, int count)
+				{}
+
+				@Override
+				public void beforeTextChanged(CharSequence s,int start,int count,int after)
+				{}
+
+				@Override
+				public void afterTextChanged(Editable s)
+				{
+
+				String filtered_str = s.toString();
+
+					if (filtered_str.matches(".*[^A-Za-z^0-9].*")) { //alphanumeric values
+
+					filtered_str = filtered_str.replaceAll("[^A-Za-z^0-9]", "");
+
+					s.clear();
+					
+					s.append(filtered_str);
+
+					// s.insert(0, filtered_str);
+
+					Toast.makeText(context,
+						"Only letters and numbers are allowed!",
+						Toast.LENGTH_SHORT).show();
+
+				}
+
+			}    
+		});
+		final EditText teamB = (EditText) findViewById(R.id.teamB_editText); //Team B input
+		teamB.addTextChangedListener(new TextWatcher(){ 				//Team B validation
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count)
+			{}
+
+			@Override
+			public void beforeTextChanged(CharSequence s,int start,int count,int after)
+			{}
+
+			@Override
+			public void afterTextChanged(Editable s)
+			{
+
+			String filtered_str = s.toString();
+
+				if (filtered_str.matches(".*[^A-Za-z^0-9].*")) { 	//alphanumeric values
+
+				filtered_str = filtered_str.replaceAll("[^A-Za-z^0-9]", "");
+
+				s.clear();
+				
+				s.append(filtered_str);
+
+				// s.insert(0, filtered_str);
+
+				Toast.makeText(context,
+					"Only letters and numbers are allowed!",
+					Toast.LENGTH_SHORT).show();
+
+			}
+
+		}    
+	});
+		final EditText halves = (EditText) findViewById(R.id.halves_editText); //halves input
+		halves.addTextChangedListener(new TextWatcher(){ 						//halves validation
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count)
+			{}
+
+			@Override
+			public void beforeTextChanged(CharSequence s,int start,int count,int after)
+			{}
+
+			@Override
+			public void afterTextChanged(Editable s)
+			{
+			int no=Integer.parseInt(s.toString());
+			if(no>9)								//numeric limit
+			{
+				s.replace(0,s.length(), "9");
+
+		
+				
+				Toast.makeText(context,
+					"9 max value!",
+					Toast.LENGTH_SHORT).show();
+			}
+				
+		}    
+	}); 
+
+		final EditText stones = (EditText) findViewById(R.id.stones_editText); //stones input
+		stones.addTextChangedListener(new TextWatcher(){ 						//Stones validation
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count)
+			{}
+
+			@Override
+			public void beforeTextChanged(CharSequence s,int start,int count,int after)
+			{}
+
+			@Override
+			public void afterTextChanged(Editable s)
+			{
+			int no=Integer.parseInt(s.toString());
+			if(no>999)								//numeric limit
+			{
+				s.replace(0,s.length(), "999");
+
+		
+				
+				Toast.makeText(context,
+					"999 max value!",
+					Toast.LENGTH_SHORT).show();
+			}
+				
+		}    
+	}); 
+		final EditText location = (EditText) findViewById(R.id.location_editText); //location input
+		location.addTextChangedListener(new TextWatcher(){ 				//location validation
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count)
+			{}
+
+			@Override
+			public void beforeTextChanged(CharSequence s,int start,int count,int after)
+			{}
+
+			@Override
+			public void afterTextChanged(Editable s)
+			{
+
+			String filtered_str = s.toString();
+
+				if (filtered_str.matches(".*[^A-Za-z^0-9].*")) {  	//alphanumeric values
+
+				filtered_str = filtered_str.replaceAll("[^A-Za-z^0-9]", "");
+
+				s.clear();
+				
+				s.append(filtered_str);
+
+				// s.insert(0, filtered_str);
+
+				Toast.makeText(context,
+					"Only letters and numbers are allowed!",
+					Toast.LENGTH_SHORT).show();
+
+			}
+
+		}    
+	});
 		
 		Button start = (Button) findViewById(R.id.start_button);
 		
 	start.setOnClickListener(new OnClickListener() {
-			
+		
+		
+		
 			@Override
 			public void onClick(View v) {
+				
+				if(teamA.getText().length() < 1){ //IF teamA is blank
+					Toast.makeText(context,
+							"Team A name not long enough",
+							Toast.LENGTH_SHORT).show();
+				}
+				else if (teamB.getText().length() < 1){ //IF teamB is blank
+					Toast.makeText(context,
+							"Team B name not long enough",
+							Toast.LENGTH_SHORT).show();
+				}
+				else if (stones.getText().length() < 1){ //IF stones is blank
+					Toast.makeText(context,
+							"Stones not long enough",
+							Toast.LENGTH_SHORT).show();
+				}
+				else if (halves.getText().length() < 1){ //IF halves is blank
+					Toast.makeText(context,
+							"Halves not long enough",
+							Toast.LENGTH_SHORT).show();
+				}
+				else if (location.getText().length() < 1){ //IF location is blank
+					Toast.makeText(context,
+							"Location name not long enough",
+							Toast.LENGTH_SHORT).show();
+				}
+				else{
+				    //Do match
+				
 				
 				boolean training = false;
 				
@@ -50,6 +238,8 @@ public class MatchConfig extends Activity {
 				
 				//this finish() will close the MatchConfig Activity when start button will be pressed
 				finish();
+			
+				}
 			}
 		});
 		
