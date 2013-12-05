@@ -78,7 +78,14 @@
     <string name="carrysummary">Set whether stones are carried between halves</string>
     <string name="soundssummary">Chooses the sound to be played for each stone</string>
     <string name="durationsummary">Sets the duration of a stone, in milliseconds</string>
-    
+    <string name="alphanumericwarning">Only letters and numbers are allowed!</string>
+    <string name="maxvaluewarning">Max halves is 9!</string>
+    <string name="maxvaluestoneswarning">Max stones is 999!</string>
+    <string name="teamaenterwarning">Please enter First Team Name!</string>
+    <string name="teambenterwarning">Please enter Second Team Name!</string>
+    <string name="halvesenterwarning">Please enter number of Halves!</string>
+    <string name="stonesenterwarning">Please enter number of Stones!</string>
+    <string name="locationenterwarning">Please enter match location!</string>
    <string-array name="soundsarray">
         <item name ="beep">High Pitched Beep</item>
         <item name ="beat">Digital Bass Beat</item>

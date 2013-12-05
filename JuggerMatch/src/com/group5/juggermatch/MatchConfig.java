@@ -54,7 +54,7 @@ public class MatchConfig extends Activity {
 					// s.insert(0, filtered_str);
 
 					Toast.makeText(context,
-						"Only letters and numbers are allowed!",
+						R.string.alphanumericwarning,
 						Toast.LENGTH_SHORT).show();
 
 				}
@@ -88,7 +88,7 @@ public class MatchConfig extends Activity {
 				// s.insert(0, filtered_str);
 
 				Toast.makeText(context,
-					"Only letters and numbers are allowed!",
+					R.string.alphanumericwarning,
 					Toast.LENGTH_SHORT).show();
 
 			}
@@ -118,11 +118,11 @@ public class MatchConfig extends Activity {
 			
 					
 					Toast.makeText(context,
-						"9 max value!",
+						R.string.maxvaluewarning,
 						Toast.LENGTH_SHORT).show();
 				}
 			}
-			catch(NumberFormatException){}
+			catch(NumberFormatException e){}
 				
 		}    
 	}); 
@@ -149,11 +149,11 @@ public class MatchConfig extends Activity {
 			
 					
 					Toast.makeText(context,
-						"999 max value!",
+						R.string.maxvaluestoneswarning,
 						Toast.LENGTH_SHORT).show();
 				}
 			}
-			catch(NumberFormatException){}
+			catch(NumberFormatException e){}
 				
 		}    
 	}); 
@@ -184,7 +184,7 @@ public class MatchConfig extends Activity {
 				// s.insert(0, filtered_str);
 
 				Toast.makeText(context,
-					"Only letters and numbers are allowed!",
+					R.string.alphanumericwarning,
 					Toast.LENGTH_SHORT).show();
 
 			}
@@ -203,27 +203,27 @@ public class MatchConfig extends Activity {
 				
 				if(teamA.getText().length() < 1){ //IF teamA is blank
 					Toast.makeText(context,
-							"Team A name not long enough",
+							R.string.teamaenterwarning,
 							Toast.LENGTH_SHORT).show();
 				}
 				else if (teamB.getText().length() < 1){ //IF teamB is blank
 					Toast.makeText(context,
-							"Team B name not long enough",
+							R.string.teambenterwarning,
 							Toast.LENGTH_SHORT).show();
 				}
 				else if (stones.getText().length() < 1){ //IF stones is blank
 					Toast.makeText(context,
-							"Stones not long enough",
+							R.string.stonesenterwarning,
 							Toast.LENGTH_SHORT).show();
 				}
 				else if (halves.getText().length() < 1){ //IF halves is blank
 					Toast.makeText(context,
-							"Halves not long enough",
+							R.string.halvesenterwarning,
 							Toast.LENGTH_SHORT).show();
 				}
 				else if (location.getText().length() < 1){ //IF location is blank
 					Toast.makeText(context,
-							"Location name not long enough",
+							R.string.locationenterwarning,
 							Toast.LENGTH_SHORT).show();
 				}
 				else{
