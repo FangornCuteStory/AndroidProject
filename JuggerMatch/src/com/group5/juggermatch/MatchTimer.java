@@ -4,14 +4,16 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
-import android.content.BroadcastReceiver;
 import android.content.Intent;
-import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.drawable.AnimationDrawable;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.PowerManager;
+import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -65,6 +67,10 @@ public class MatchTimer extends Activity {
 	private String location;
 	private Timer timer;
 	private MediaPlayer mPlayer;
+	private AnimationDrawable countdownAnimation;
+	private AnimationDrawable timerAnimation;
+
+	SharedPreferences prefs;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +78,11 @@ public class MatchTimer extends Activity {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_match_timer);
-		
+		prefs = PreferenceManager.getDefaultSharedPreferences(this);
+		String stoneDurationIn = prefs.getString("stone_duration", "1500");
+        stoneDuration = Long.parseLong(stoneDurationIn);
+		timerView = (ImageView) findViewById(R.id.timerbackground);
+		timerView.setBackgroundResource(R.drawable.timercircle);
 		rollBack = (ImageView) findViewById(R.id.rollbackbutton);
 		fastForward = (ImageView) findViewById(R.id.fastforwardbutton);
 		playPause = (ImageView) findViewById(R.id.playpausebutton);
@@ -89,35 +99,88 @@ public class MatchTimer extends Activity {
 		teamNameB = (TextView) findViewById(R.id.teamb);	
 		halvesCounter = (TextView) findViewById(R.id.timerHalves);	
 		stonesCounter = (TextView) findViewById(R.id.timerStones);	
+		buildAnimation();
 		
 		
 		
 		Intent intent = getIntent();
 		
+		if (intent.hasExtra("teamAvar")){
         teamAstring = intent.getStringExtra("teamAvar");
-        teamBstring = intent.getStringExtra("teamBvar");
-        setTeamNames();
+		}
+		else
+		{
+	    teamAstring = "TEAM A";
+		}
+		
+		if (intent.hasExtra("teamBvar")){
+	        teamBstring = intent.getStringExtra("teamBvar");
+			}
+			else
+			{
+		    teamBstring = "TEAM B";
+			}
+		
+		
+		setTeamNames();
         
-
-        int halves = intent.getExtras().getInt("halvesVar");
+		int halves;
+		if (intent.hasExtra("halvesVar")){
+        halves = intent.getExtras().getInt("halvesVar");
+		}
+		else{
+		halves = 2;
+		}
+		
+		
         halvesRemaining = halves;
         halvesTotal = halves;
         halvesCounter.setText(halvesRemaining + "/" + halvesTotal);
-        int stones = intent.getExtras().getInt("stonesVar");
+        
+        
+        
+        int stones;
+        if(intent.hasExtra("stonesVar")){
+        stones = intent.getExtras().getInt("stonesVar");
+        } else {
+        	stones = 100;
+        }
+        
+        
         stonesRemaining = stones;
         stonesTotal = stones;
         stonesCounter.setPaintFlags(stonesCounter.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         stonesCounter.setText(stonesRemaining + "/" + stonesTotal);
+        
+        if(intent.hasExtra("booleanVar")){
         trainingMode =  intent.getExtras().getBoolean("booleanVar");
+        }
+        
+        if(intent.hasExtra("locationVar")){
         location =  intent.getExtras().getString("locationVar");
-        mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.highbeep); 
+        }
+        else{
+        location = "Location Unspecified";
+        }
+        
+        String soundString = prefs.getString("sound_choose","highbeep");
+        
+        if(soundString.equals("drum")){
+        mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.drum);
+        }
+        else if(soundString.equals("beat")){
+        mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.beat);
+        } else{
+        
+        mPlayer = MediaPlayer.create(getApplicationContext(), R.raw.highbeep);
+               
+        }
+        
         mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
         timerView = (ImageView) findViewById(R.id.timerbackground);
-        IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_ON);
-        filter.addAction(Intent.ACTION_SCREEN_OFF);
-        BroadcastReceiver mReceiver = new ScreenReceiver();
-        registerReceiver(mReceiver, filter);
 
+
+        
 
         if (trainingMode==true){
         	rollBack.setVisibility(View.INVISIBLE);
@@ -142,16 +205,32 @@ public class MatchTimer extends Activity {
     	    public void onClick(View v) {
     	    	if(state==2 || state==4 || state==5){
     	    		pauseTimer();
-    	    	}
-    	    	else if(state==1){
+    	    	} else if(state==1){
     	    		matchStartTime=System.currentTimeMillis();
-    	    		startTimer();
-    	    	}
-    	    	else if(state==3){
-    	    		startTimer();    	    		
-    	    	}
+    	    			if(prefs.getBoolean("use_countdown",false)==true){
+    	    				countDown.setBackgroundResource(R.drawable.countdownanimation);
+    	    				countdownAnimation = (AnimationDrawable) countDown.getBackground();
+    	    				countdownAnimation.start();
+    	    				timer = new Timer();
+    	    				timer.schedule(new countDownTask(), 1500, 1500);
+    	    			}else {
+    	    				startTimer();
+    	    			}
+    	   		 
+    	    	}else if(state==3){
+    	   		 if(prefs.getBoolean("use_countdown",false)==true){
+    				 countDown.setBackgroundResource(R.drawable.countdownanimation);
+    				 countdownAnimation = (AnimationDrawable) countDown.getBackground();
+    				 countdownAnimation.start();
+    				 timer = new Timer();
+    				 timer.schedule(new countDownTask(), 1500, 1500);
+    				 
+     	    		
+    			 } else {
+    				 startTimer();
+    			 }
     	    }
-    	});
+    	    }});
     	
     	matchFinish.setOnClickListener(new OnClickListener() {
     	   @Override
@@ -259,20 +338,62 @@ public class MatchTimer extends Activity {
 	}
 	
 	@Override protected void onPause(){
-		if(state==2){
+		
+		PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
+	    boolean isScreenOn = powerManager.isScreenOn();
+	    
+		if(state==2 && isScreenOn){
 			pauseTimer();
 		}
 		super.onPause();
 	}
 	
+	
+	private void buildAnimation(){
+		timerAnimation= new AnimationDrawable();
+		int totalduration = (int) stoneDuration;
+		int frameduration = (totalduration-50)/30;
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe30), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe1), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe2), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe3), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe4), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe5), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe6), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe7), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe8), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe9), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe10), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe11), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe12), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe13), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe14), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe15), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe16), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe17), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe18), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe19), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe20), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe21), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe22), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe23), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe24), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe25), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe26), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe27), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe28), frameduration);
+		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe29), frameduration);
+	
+	}
 	private void startTimer(){
 		
 		 timer = new Timer();
 		 timer.schedule(new RemindTask(),
 		 stoneDuration, //initial delay
 		 stoneDuration); //subsequent rate
-		
-		
+		timerView.setBackgroundDrawable(getResources().getDrawable(R.drawable.timercircle));
+		timerView.setBackgroundDrawable(timerAnimation);
+		timerAnimation.start();
 		
 		if(trainingMode==false){
 		teamAGoal.setImageDrawable(getResources().getDrawable(R.drawable.scorerun));
@@ -293,8 +414,9 @@ public class MatchTimer extends Activity {
 	}
 	
 	private void pauseTimer(){
-		if(state==2 || state==4){
+		if(state==2 || state==4 || state==5){
 		timer.cancel();
+		timerAnimation.stop();
 		}
 		if(halvesRemaining>0){
 		halvesCounter.setTextColor(Color.rgb(255,255,0));
@@ -308,7 +430,7 @@ public class MatchTimer extends Activity {
 			rollBack.setVisibility(View.INVISIBLE);
 		}
 		
-				
+		timerView.setBackgroundResource(R.drawable.timercircle);		
 		playPause.setImageDrawable(getResources().getDrawable(R.drawable.play));
 		teamAGoal.setImageDrawable(getResources().getDrawable(R.drawable.scoreplus));
 		teamBGoal.setImageDrawable(getResources().getDrawable(R.drawable.scoreplus));		
@@ -346,7 +468,12 @@ public class MatchTimer extends Activity {
 		matchFinish.setBackgroundColor(Color.rgb(0,0,0));
 		halvesRemaining--;
         halvesCounter.setText(halvesRemaining + "/" + halvesTotal);
+        
+        if(prefs.getBoolean("stones_carry",false)==true){
+            stonesRemaining=stonesTotal+stonesRemaining;
+		 } else {
         stonesRemaining=stonesTotal;
+		 }
         stonesCounter.setText(stonesRemaining + "/" + stonesTotal);
         state=3;
 
@@ -420,6 +547,12 @@ public class MatchTimer extends Activity {
 
              @Override
              public void run(){
+            	 countDown.setBackgroundResource(0);
+            	 timerAnimation.stop();
+            	 timerView.setBackgroundDrawable(getResources().getDrawable(R.drawable.timercircle));
+            	 timerView.setBackgroundDrawable(timerAnimation);
+         		timerAnimation.start();
+            	 
         	     stonesCounter.setText(stonesRemaining + "/" + stonesTotal);
         		 if(stonesRemaining==0 && halvesRemaining>1){
         			 halfOver();
@@ -430,6 +563,26 @@ public class MatchTimer extends Activity {
           });
 		 }
 		 }
+	 
+	 private class countDownTask extends TimerTask {
+
+		 public void run() {
+			 
+		 runOnUiThread(new Runnable(){
+
+             @Override
+             public void run(){
+            	timer.cancel();
+            	countdownAnimation.stop();
+ 	    		startTimer();
+ 	    		
+             }
+          });
+		 }
+		 
+		 
+		 }
+
 
 	
 	

@@ -1,0 +1,33 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    
+  <CheckBoxPreference
+      android:key="use_countdown"
+      android:summary="@string/countdownsummary"
+      android:title="@string/usecountdown"
+      android:defaultValue="false"
+      />
+  <CheckBoxPreference
+      android:key="stones_carry"
+      android:summary="@string/carrysummary"
+      android:title="@string/stonescarry"
+      android:defaultValue="false"
+      />
+  <ListPreference 
+      android:key="sound_choose"
+      android:summary="@string/soundssummary"
+      android:title="@string/soundsprompt"
+      android:defaultValue="beep"
+      android:entries="@array/soundsarray"
+      android:entryValues="@array/soundfiles"/>
+  
+  <EditTextPreference
+    android:key="stone_duration"
+    android:title="@string/stoneduration"
+    android:summary="@string/durationsummary"
+    android:numeric="integer"
+    android:defaultValue="1500"
+    android:maxLength="4"
+/>
+
+</PreferenceScreen>

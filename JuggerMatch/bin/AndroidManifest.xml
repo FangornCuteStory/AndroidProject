@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="11"
+        android:minSdkVersion="8"
         android:targetSdkVersion="18" />
 
     <application
@@ -36,8 +36,7 @@
             android:name="com.group5.juggermatch.MatchTimer"
             android:label="@string/title_activity_match_timer"
             android:parentActivityName="com.group5.juggermatch.MatchConfig"
-            android:theme="@android:style/Theme.Black.NoTitleBar"
-            android:noHistory="true" >
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.group5.juggermatch.MatchConfig" />
@@ -46,7 +45,7 @@
             android:name="com.group5.juggermatch.MatchResult"
             android:label="@string/title_activity_match_result"
             android:noHistory="true"
-            android:theme="@style/AppBaseTheme">
+            android:theme="@style/AppBaseTheme" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.group5.juggermatch.MatchTimer" />
@@ -55,7 +54,7 @@
             android:name="com.group5.juggermatch.MatchInfo"
             android:label="@string/title_activity_match_result"
             android:parentActivityName="com.group5.juggermatch.ViewMatches"
-            android:theme="@style/AppBaseTheme">
+            android:theme="@style/AppBaseTheme" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.group5.juggermatch.ViewMatches" />
@@ -64,10 +63,18 @@
             android:name="com.group5.juggermatch.ViewMatches"
             android:label="@string/title_activity_view_matches"
             android:parentActivityName="com.group5.juggermatch.MainMenu"
-            android:theme="@style/AppBaseTheme">
+            android:theme="@style/AppBaseTheme" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.group5.juggermatch.MainMenu" />
+        </activity>
+        <activity
+            android:name="com.group5.juggermatch.Matchpreferences"
+            android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name="com.group5.juggermatch.Help"
+            android:label="@string/title_activity_help" >
         </activity>
     </application>
 

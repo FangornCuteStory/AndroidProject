@@ -55,7 +55,6 @@
      >
  <ImageView
      android:id="@+id/timerbackground"
-     android:src="@drawable/timercircle"
      android:layout_height="match_parent"
      android:layout_width="match_parent"
      android:adjustViewBounds="true"

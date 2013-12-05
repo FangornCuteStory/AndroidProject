@@ -1,9 +1,11 @@
 package com.group5.juggermatch;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -19,6 +21,7 @@ Button match = (Button) findViewById(R.id.match_button);
 Button quick_match = (Button) findViewById(R.id.quick_match_button);
 Button training = (Button) findViewById(R.id.training_button);
 Button view_matches = (Button) findViewById(R.id.viewMatches_button);
+PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 
 
 	match.setOnClickListener(new OnClickListener() {
@@ -98,6 +101,25 @@ startActivity(theIntent);
 		return true;
 	}
 
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle item selection
+	    switch (item.getItemId()) {
+	        case R.id.settings:
+	            Intent intentsettings = new Intent(MainMenu.this, Matchpreferences.class);
+	            startActivity(intentsettings);
+	            return true;
+	        case R.id.help:
+	        	Intent intenthelp = new Intent(MainMenu.this, Help.class);
+	            startActivity(intenthelp);
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
+	
+	
+	
 	
 	public void ExitFromApp(View view) {
 		

@@ -86,19 +86,19 @@ public class MatchConfig extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case android.R.id.home:
-			// This ID represents the Home or Up button. In the case of this
-			// activity, the Up button is shown. Use NavUtils to allow users
-			// to navigate up one level in the application structure. For
-			// more details, see the Navigation pattern on Android Design:
-			//
-			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
-			//
-			NavUtils.navigateUpFromSameTask(this);
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
+	    // Handle item selection
+	    switch (item.getItemId()) {
+	        case R.id.settings:
+	            Intent intentsettings = new Intent(MatchConfig.this, Matchpreferences.class);
+	            startActivity(intentsettings);
+	            return true;
+	        case R.id.help:
+	        	Intent intenthelp = new Intent(MatchConfig.this, Help.class);
+	            startActivity(intenthelp);
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
 	}
 
 }

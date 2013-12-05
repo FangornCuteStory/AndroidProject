@@ -3,13 +3,17 @@ package com.group5.juggermatch;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 
 public class MatchInfo extends Activity {
 	
@@ -151,5 +155,29 @@ public class MatchInfo extends Activity {
 	          }); 	    
 	    return dialog;  
 	}  
+    
+    @Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.menu, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle item selection
+	    switch (item.getItemId()) {
+	        case R.id.settings:
+	            Intent intentsettings = new Intent(MatchInfo.this, Matchpreferences.class);
+	            startActivity(intentsettings);
+	            return true;
+	        case R.id.help:
+	        	Intent intenthelp = new Intent(MatchInfo.this, Help.class);
+	            startActivity(intenthelp);
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
 
 }

@@ -9,6 +9,8 @@ import java.util.Locale;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -177,7 +179,29 @@ public class ViewMatches<MainActivity> extends Activity {
 		
 	}
 	
-	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.menu, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    // Handle item selection
+	    switch (item.getItemId()) {
+	        case R.id.settings:
+	            Intent intentsettings = new Intent(ViewMatches.this, Matchpreferences.class);
+	            startActivity(intentsettings);
+	            return true;
+	        case R.id.help:
+	        	Intent intenthelp = new Intent(ViewMatches.this, Help.class);
+	            startActivity(intenthelp);
+	            return true;
+	        default:
+	            return super.onOptionsItemSelected(item);
+	    }
+	}
 
 
 }
