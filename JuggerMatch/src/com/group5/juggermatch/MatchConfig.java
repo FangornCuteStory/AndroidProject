@@ -108,17 +108,21 @@ public class MatchConfig extends Activity {
 			@Override
 			public void afterTextChanged(Editable s)
 			{
-			int no=Integer.parseInt(s.toString());
-			if(no>9)								//numeric limit
-			{
-				s.replace(0,s.length(), "9");
-
-		
+			try{
+				int no=Integer.parseInt(s.toString());
 				
-				Toast.makeText(context,
-					"9 max value!",
-					Toast.LENGTH_SHORT).show();
+				if(no>9)								//numeric limit
+				{
+					s.replace(0,s.length(), "9");
+	
+			
+					
+					Toast.makeText(context,
+						"9 max value!",
+						Toast.LENGTH_SHORT).show();
+				}
 			}
+			catch(NumberFormatException){}
 				
 		}    
 	}); 
@@ -136,17 +140,20 @@ public class MatchConfig extends Activity {
 			@Override
 			public void afterTextChanged(Editable s)
 			{
-			int no=Integer.parseInt(s.toString());
-			if(no>999)								//numeric limit
-			{
-				s.replace(0,s.length(), "999");
-
-		
-				
-				Toast.makeText(context,
-					"999 max value!",
-					Toast.LENGTH_SHORT).show();
+			try{
+				int no=Integer.parseInt(s.toString());
+				if(no>999)								//numeric limit
+				{
+					s.replace(0,s.length(), "999");
+	
+			
+					
+					Toast.makeText(context,
+						"999 max value!",
+						Toast.LENGTH_SHORT).show();
+				}
 			}
+			catch(NumberFormatException){}
 				
 		}    
 	}); 
