@@ -20,29 +20,10 @@ public class MainMenu extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-    	  
-	    }
-        else{  
-        	this.requestWindowFeature(Window.FEATURE_NO_TITLE); // RC: this removes black bar at the top of activities 
-        }
+ 
    
-        //Splash Code Start
-        MyStateSaver data = (MyStateSaver) getLastNonConfigurationInstance(); // Check if app still loading
-	    if (data != null) {
-	    	if (data.showSplashScreen) {  
-	    		if (getIntent().getIntExtra("splash_screen", 0) != 1) showSplashScreen();
-	        }  
-		setContentView(R.layout.activity_main_menu);  
-	    } else {  
-	    	if (getIntent().getIntExtra("splash_screen", 0) != 1) showSplashScreen();
-	    //Splash Code end
 			 
-		//other relevent stuff can go here
 		setContentView(R.layout.activity_main_menu);
-		}
-		
-		 
 		
 		Button match = (Button) findViewById(R.id.match_button);
 		

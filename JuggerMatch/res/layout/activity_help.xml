@@ -12,49 +12,57 @@
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/S1" />
+            android:text="@string/S1" 
+            android:layout_margin = "@dimen/activity_horizontal_margin"/>
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/S2" />
+            android:text="@string/S2" 
+            android:layout_margin = "@dimen/activity_horizontal_margin"/>
        
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/S3" />
+            android:text="@string/S3"
+            android:layout_margin = "@dimen/activity_horizontal_margin" />
         
         <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/S4" />
+            android:text="@string/S4"
+            android:layout_margin = "@dimen/activity_horizontal_margin" />
         
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/S5" />
+            android:text="@string/S5"
+            android:layout_margin = "@dimen/activity_horizontal_margin" />
         
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/S6" />
+            android:text="@string/S6"
+            android:layout_margin = "@dimen/activity_horizontal_margin" />
         
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/S7" />
+            android:text="@string/S7" 
+            android:layout_margin = "@dimen/activity_horizontal_margin"/>
         
         <TextView
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/S8" />
+            android:text="@string/S8"
+            android:layout_margin = "@dimen/activity_horizontal_margin" />
         
         <LinearLayout
             android:layout_width="fill_parent"
@@ -161,31 +169,36 @@
             android:id="@+id/textView14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/S14" />
+            android:text="@string/S14" 
+            android:layout_margin = "@dimen/activity_horizontal_margin"/>
         
         <TextView
             android:id="@+id/textView15"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/S15" />
+            android:text="@string/S15"
+            android:layout_margin = "@dimen/activity_horizontal_margin" />
         
         <TextView
             android:id="@+id/textView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/S16" />
+            android:text="@string/S16"
+            android:layout_margin = "@dimen/activity_horizontal_margin" />
 
         <TextView
             android:id="@+id/textView17"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/S17" />
+            android:text="@string/S17"
+            android:layout_margin = "@dimen/activity_horizontal_margin" />
         
         <TextView
             android:id="@+id/textView18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/S18" />
+            android:text="@string/S18"
+            android:layout_margin = "@dimen/activity_horizontal_margin" />
         
         
     </LinearLayout>

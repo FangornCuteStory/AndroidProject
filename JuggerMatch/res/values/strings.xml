@@ -110,19 +110,20 @@
     <string name="check_box_img"> Check box image</string>
     <string name="prog_dialog_title"> Exporting matches results&#8230;</string>
     <string name="please_wait"> Please wait&#8230;</string>
-    <!--string name="remote_DB_url">http://10.0.2.2/test2.php</string-->
+    <!-- string name="remote_DB_url">http://10.0.2.2/test2.php</string -->
     <string name="remote_DB_url">http://duncanw.netsoc.com/matches_export.php</string>
-   <string-array name="soundsarray">
-        <item name ="beep">High Pitched Beep</item>
-        <item name ="beat">Digital Bass Beat</item>
-        <item name ="drum">Real Drum Beat</item>
+
+    <string-array name="soundsarray">
+        <item name="beep">High Pitched Beep</item>
+        <item name="beat">Digital Bass Beat</item>
+        <item name="drum">Real Drum Beat</item>
     </string-array>
-    
-   <string-array name="soundfiles">
-       <item name="beep">highbeep</item>
-       <item name="beat">beat</item>
-       <item name="drum">drum</item>    
-   </string-array>
-    
+    <string-array name="soundfiles">
+        <item name="beep">highbeep</item>
+        <item name="beat">beat</item>
+        <item name="drum">drum</item>
+    </string-array>
+
+    <string name="title_activity_splash_screen">SplashScreen</string>
 
 </resources>
