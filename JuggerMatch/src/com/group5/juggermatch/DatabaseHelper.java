@@ -9,7 +9,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 	//SQLiteOpenHelper is a helper class in Android to manage database creation and version management
 	// All static variables
     // Database version
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 6; 
  
     // Database name
     private static final String DATABASE_NAME = "jugger_matches";
@@ -26,6 +26,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
      static final String KEY_START_TIME_STAMP= "start_time";
      static final String KEY_END_TIME_STAMP = "end_time";
      static final String KEY_LOCATION = "location";
+     static final String KEY_CHECKED = "checked";
     
   // Database creation SQL statement
      private static final String DATABASE_CREATE = "create table " + DATABASE_TABLE + "(" + 
@@ -36,7 +37,8 @@ public class DatabaseHelper extends SQLiteOpenHelper{
                            KEY_SCORE_TEAM2 + " integer not null, " + 
     		               KEY_START_TIME_STAMP + " integer not null," +
                            KEY_END_TIME_STAMP + " integer not null," +
-                           KEY_LOCATION + " text);";
+                           KEY_LOCATION + " text," + 
+                          KEY_CHECKED + " integer not null);";
     
     public DatabaseHelper(Context context) {	
     	super(context, DATABASE_NAME, null, DATABASE_VERSION);

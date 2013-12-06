@@ -51,7 +51,7 @@ public class MainMenu extends Activity {
 		Button training = (Button) findViewById(R.id.training_button);
 		
 		Button view_matches = (Button) findViewById(R.id.viewMatches_button);
-		
+		Button export_results = (Button) findViewById(R.id.exportMatchResults_button);
 		PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 		
 
@@ -123,6 +123,17 @@ startActivity(theIntent);
 		}
 	
 	});
+	
+	export_results.setOnClickListener(new OnClickListener() {
+
+		@Override
+		public void onClick(View v) {
+				
+		Intent theIntent = new Intent(MainMenu.this, ExportMatchesResults.class);
+		startActivity(theIntent);
+			}
+		
+		});   
 		
 }
 	

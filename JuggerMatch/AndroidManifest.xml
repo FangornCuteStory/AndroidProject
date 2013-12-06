@@ -7,6 +7,9 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="18" />
+    
+    <uses-permission 
+        android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -77,6 +80,12 @@
         <activity
             android:name="com.group5.juggermatch.Help"
             android:label="@string/title_activity_help" >
+        </activity>
+        <activity
+            android:name="com.group5.juggermatch.ExportMatchesResults"
+            android:label="@string/title_activity_export_matches_results"
+            android:parentActivityName="com.group5.juggermatch.MainMenu"
+            android:theme="@style/AppBaseTheme" > >
         </activity>
     </application>
 

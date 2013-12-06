@@ -21,7 +21,8 @@ public class DatabaseOperations {
 			                       DatabaseHelper.KEY_SCORE_TEAM2, 
 			                       DatabaseHelper.KEY_START_TIME_STAMP,
 			                       DatabaseHelper.KEY_END_TIME_STAMP,
-			                       DatabaseHelper.KEY_LOCATION
+			                       DatabaseHelper.KEY_LOCATION,
+		                           DatabaseHelper.KEY_CHECKED
 	                              };
 
 	
@@ -50,6 +51,15 @@ public class DatabaseOperations {
 			values.put(DatabaseHelper.KEY_START_TIME_STAMP, match.getStartTime());
 			values.put(DatabaseHelper.KEY_END_TIME_STAMP, match.getEndTime());
 			values.put(DatabaseHelper.KEY_LOCATION, match.getLocation());
+			values.put(DatabaseHelper.KEY_CHECKED, match.isChecked());
+			if (match.isChecked())
+			{
+				values.put(DatabaseHelper.KEY_CHECKED, 1);
+			}
+			else
+			{
+				values.put(DatabaseHelper.KEY_CHECKED, 0);
+			}  
 		Log.d(TAG,"insertMatch: " + values);	  
 			return db.insert(DatabaseHelper.DATABASE_TABLE, null,values);		  		  		  
 		  }
@@ -105,6 +115,7 @@ public class DatabaseOperations {
 		    match.setStartTime(cursor.getLong(5));
 		    match.setEndTime(cursor.getLong(6));
 		    match.setLocation(cursor.getString(7));
+		    match.setChecked(cursor.getInt(8)>0);
 		    return match;
 		}
 		  
@@ -119,11 +130,25 @@ public class DatabaseOperations {
 			values.put(DatabaseHelper.KEY_START_TIME_STAMP, match.getStartTime());
 			values.put(DatabaseHelper.KEY_END_TIME_STAMP, match.getEndTime());
 			values.put(DatabaseHelper.KEY_LOCATION, match.getLocation());
-			
+			if (match.isChecked())
+			{
+				values.put(DatabaseHelper.KEY_CHECKED, 1);
+			}
+			else
+			{
+				values.put(DatabaseHelper.KEY_CHECKED, 0);
+			}  
 			return db.update(DatabaseHelper.DATABASE_TABLE, values,DatabaseHelper.KEY_ID  + " = " + id, null) > 0;
 		}	
 		
-		public int getMatchsCount() {
+		public boolean setAllToUnchecked() 
+		{
+			ContentValues values = new ContentValues();
+			values.put(DatabaseHelper.KEY_CHECKED, 0);
+			return db.update(DatabaseHelper.DATABASE_TABLE, values,null, null) > 0;
+		}
+
+			public int getMatchsCount() {
 	        String countQuery = "SELECT  * FROM " + DatabaseHelper.DATABASE_TABLE;
 	        Cursor cursor = db.rawQuery(countQuery, null);
 	        cursor.close();

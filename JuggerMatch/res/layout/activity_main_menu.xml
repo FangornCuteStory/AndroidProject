@@ -1,63 +1,51 @@
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
     
-
-   	<TableRow
-   	    android:id="@+id/tableRow2"
-   	    android:layout_width="wrap_content"
-   	    android:layout_height="wrap_content" >
-
-   		<Button
+    >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_margin = "@dimen/activity_horizontal_margin" >
+    
+<Button
    		    android:id="@+id/match_button"
-   		    android:layout_width="wrap_content"
+   		    android:layout_width="match_parent"
    		    android:layout_height="wrap_content"
    		    android:layout_weight="1"
    		    android:onClick="invokes_activity_match_config"
    		    android:text="@string/title_match_button" />
 
-   	</TableRow>
-
-   	<TableRow
-   	    android:id="@+id/tableRow3"
-   	    android:layout_width="wrap_content"
-   	    android:layout_height="wrap_content" >
-
-   		<Button
+<Button
    		    android:id="@+id/quick_match_button"
-   		    android:layout_width="wrap_content"
+   		    android:layout_width="match_parent"
    		    android:layout_height="wrap_content"
    		    android:layout_weight="1"
    		    android:text="@string/title_quick_match_button" />
 
-   	</TableRow>
-
-   	<TableRow
-   	    android:id="@+id/tableRow4"
-   	    android:layout_width="wrap_content"
-   	    android:layout_height="wrap_content" >
-
-   		<Button
+<Button
    		    android:id="@+id/training_button"
-   		    android:layout_width="wrap_content"
+   		    android:layout_width="match_parent"
    		    android:layout_height="wrap_content"
    		    android:layout_weight="1"
    		    android:text="@string/title_training_button" />
 
-   	</TableRow>
-   	
-   	<TableRow
-   	    android:id="@+id/tableRow5"
-   	    android:layout_width="wrap_content"
-   	    android:layout_height="wrap_content" >
-
-   		<Button
+<Button
    		    android:id="@+id/viewMatches_button"
-   		    android:layout_width="wrap_content"
+   		    android:layout_width="match_parent"
    		    android:layout_height="wrap_content"
    		    android:layout_weight="1"
    		    android:text="@string/title_activity_view_matches" />
 
-   	</TableRow>
-</TableLayout>
+<Button
+   		    android:id="@+id/exportMatchResults_button"
+   		    android:layout_width="match_parent"
+   		    android:layout_height="wrap_content"
+   		    android:layout_weight="1"
+   		    android:text="@string/title_activity_export_matches_results" />
+
+
+</LinearLayout>
+</ScrollView>

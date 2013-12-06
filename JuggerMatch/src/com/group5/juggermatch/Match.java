@@ -10,6 +10,7 @@ public class Match {
 	private long start_time;                 // start time of the match
 	private long end_time;                   // end time of the match
 	private String location;
+	private boolean checked;
 
 
 	public long getId() {
@@ -69,10 +70,18 @@ public class Match {
 	}
 
 	public String getLocation() {
-		return this.location;
+		return location;
 	}
 
 	public void setLocation(String loc) {
 		this.location = loc;
+	}
+	
+	public boolean isChecked(){
+		return checked;	
+	}
+	
+	public void setChecked(boolean ch){
+		this.checked = ch;
 	}
 }	

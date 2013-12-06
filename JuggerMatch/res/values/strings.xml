@@ -104,6 +104,14 @@
     <string name="S16">On the result screen, you can review and choose to either "Save" or "Reject" the match result. After you choose, you will be returned to the main menu.</string>
     <string name="S17">The "View Matches" view displays a scrollable list of all saved matches, you can tap an individual match to view the full result, and choose to delete the match.</string>
     <string name="S18">The "Export Matches" view displays a similar list to "View Matches". You can select matches with a checkbox, and press "Next". On the next screen, you can choose a saved database or enter details of a new database to export the match result. When you are done, press "Export".</string>
+    <string name="title_activity_export_matches_results">Export Match Results</string>
+    <string name="button_export">Export </string>
+    <string name="empty_database">Database is empty, please insert matches results !"</string>
+    <string name="check_box_img"> Check box image</string>
+    <string name="prog_dialog_title"> Exporting matches results&#8230;</string>
+    <string name="please_wait"> Please wait&#8230;</string>
+    <!--string name="remote_DB_url">http://10.0.2.2/test2.php</string-->
+    <string name="remote_DB_url">http://duncanw.netsoc.com/matches_export.php</string>
    <string-array name="soundsarray">
         <item name ="beep">High Pitched Beep</item>
         <item name ="beat">Digital Bass Beat</item>
