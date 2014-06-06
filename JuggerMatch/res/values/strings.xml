@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello_world">Hello World</string>
     <string name="settings">Settings</string>
     <string name="help">Help</string>
     <string name="end_half">End Half</string>
     <string name="end_match">End Match</string>
     <string name="app_name">Jugger Match</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_jugger">Hello jugger!</string>
     <string name="title_activity_match_config">Match Parameters</string>
     <string name="title_activity_match_timer">MatchTimer</string>
     <string name="title_activity_match_result">Match Result</string>
@@ -24,9 +22,7 @@
     <string name="title_start_button">Start</string>
     <string name="title_back_button">Back</string>
     <string name="title_exit_button">Exit</string>
-    <string name="match_date">01/11/2013,</string>
     <string name="date">Match date:</string>
-    <string name="match_day">Tue,</string>
     <string name="colon">   :</string>
     <string name="location">Location:</string>
     <string name="match_location">Unspecified Location</string>
@@ -53,7 +49,7 @@
     <string name="button_delete">Delete </string>
     <string name="button_close">Close </string>
     <string name="button_back">Back</string>
-    <string name="delete_ok">Match results have been deleted successfuly! </string>
+    <string name="delete_ok">Match results have been deleted successfully! </string>
     <string name="delete_failed">Deletion failed! </string>
     <string name="positive_delete">Delete </string>
     <string name="negative_close">Close </string>
@@ -103,27 +99,28 @@
     <string name="S15">When the match is finished, the "End Match" button is displayed, which passes the result of the match to the results screen, and the "End Time" of the match is recorded at this time.</string>
     <string name="S16">On the result screen, you can review and choose to either "Save" or "Reject" the match result. After you choose, you will be returned to the main menu.</string>
     <string name="S17">The "View Matches" view displays a scrollable list of all saved matches, you can tap an individual match to view the full result, and choose to delete the match.</string>
-    <string name="S18">The "Export Matches" view displays a similar list to "View Matches". You can select matches with a checkbox, and press "Next". On the next screen, you can choose a saved database or enter details of a new database to export the match result. When you are done, press "Export".</string>
+    <string name="S18">The "Export Matches" view displays a similar list to "View Matches". You can select matches with a checkbox, and press "Next". On the next screen, you can choose a saved database or enter details of a new database to export the match result. When you are done, press "Export". (This is currently in development, and exports to a testing server)</string>
     <string name="title_activity_export_matches_results">Export Match Results</string>
     <string name="button_export">Export </string>
-    <string name="empty_database">Database is empty, please insert matches results !"</string>
+    <string name="empty_database">No Matches Found!"</string>
     <string name="check_box_img"> Check box image</string>
     <string name="prog_dialog_title"> Exporting matches results&#8230;</string>
     <string name="please_wait"> Please wait&#8230;</string>
-    <!-- string name="remote_DB_url">http://10.0.2.2/test2.php</string -->
-    <string name="remote_DB_url">http://duncanw.netsoc.com/matches_export.php</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+
 
     <string-array name="soundsarray">
         <item name="beep">High Pitched Beep</item>
         <item name="beat">Digital Bass Beat</item>
         <item name="drum">Real Drum Beat</item>
     </string-array>
+
+<!--Not to be translated-->
     <string-array name="soundfiles">
         <item name="beep">highbeep</item>
         <item name="beat">beat</item>
         <item name="drum">drum</item>
     </string-array>
-
-    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="remote_DB_url">http://duncanw.netsoc.com/matches_export.php</string>
 
 </resources>

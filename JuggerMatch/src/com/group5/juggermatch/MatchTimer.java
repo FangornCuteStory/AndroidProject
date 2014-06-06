@@ -4,6 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -13,6 +14,7 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.PowerManager;
+import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.View;
@@ -68,7 +70,7 @@ public class MatchTimer extends Activity {
 	private Timer timer;
 	private MediaPlayer mPlayer;
 	private AnimationDrawable countdownAnimation;
-	private AnimationDrawable timerAnimation;
+	//private AnimationDrawable timerAnimation;
 
 	SharedPreferences prefs;
 
@@ -99,8 +101,7 @@ public class MatchTimer extends Activity {
 		teamNameB = (TextView) findViewById(R.id.teamb);	
 		halvesCounter = (TextView) findViewById(R.id.timerHalves);	
 		stonesCounter = (TextView) findViewById(R.id.timerStones);	
-		buildAnimation();
-		
+		//buildAnimation();
 		
 		
 		Intent intent = getIntent();
@@ -349,7 +350,7 @@ public class MatchTimer extends Activity {
 	}
 	
 	
-	private void buildAnimation(){
+	/*private void buildAnimation(){
 		timerAnimation= new AnimationDrawable();
 		int totalduration = (int) stoneDuration;
 		int frameduration = (totalduration-50)/30;
@@ -385,15 +386,16 @@ public class MatchTimer extends Activity {
 		timerAnimation.addFrame(getResources().getDrawable(R.drawable.timerframe29), frameduration);
 	
 	}
+	*/
 	private void startTimer(){
 		
 		 timer = new Timer();
 		 timer.schedule(new RemindTask(),
 		 stoneDuration, //initial delay
 		 stoneDuration); //subsequent rate
-		timerView.setBackgroundDrawable(getResources().getDrawable(R.drawable.timercircle));
-		timerView.setBackgroundDrawable(timerAnimation);
-		timerAnimation.start();
+		//timerView.setBackgroundDrawable(getResources().getDrawable(R.drawable.timercircle));
+		//timerView.setBackgroundDrawable(timerAnimation);
+		//timerAnimation.start();
 		
 		if(trainingMode==false){
 		teamAGoal.setImageDrawable(getResources().getDrawable(R.drawable.scorerun));
@@ -416,7 +418,7 @@ public class MatchTimer extends Activity {
 	private void pauseTimer(){
 		if(state==2 || state==4 || state==5){
 		timer.cancel();
-		timerAnimation.stop();
+		//timerAnimation.stop();
 		}
 		if(halvesRemaining>0){
 		halvesCounter.setTextColor(Color.rgb(255,255,0));
@@ -542,16 +544,20 @@ public class MatchTimer extends Activity {
 		 public void run() {
 		 mPlayer.start();
 		 stonesRemaining--;
+		 Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+		 if(stonesRemaining<11){
+			 vibrator.vibrate(50);
+		 }
 			 
 		 runOnUiThread(new Runnable(){
 
              @Override
              public void run(){
             	 countDown.setBackgroundResource(0);
-            	 timerAnimation.stop();
-            	 timerView.setBackgroundDrawable(getResources().getDrawable(R.drawable.timercircle));
-            	 timerView.setBackgroundDrawable(timerAnimation);
-         		timerAnimation.start();
+            	// timerAnimation.stop();
+            	// timerView.setBackgroundDrawable(getResources().getDrawable(R.drawable.timercircle));
+            	// timerView.setBackgroundDrawable(timerAnimation);
+         		//timerAnimation.start();
             	 
         	     stonesCounter.setText(stonesRemaining + "/" + stonesTotal);
         		 if(stonesRemaining==0 && halvesRemaining>1){
